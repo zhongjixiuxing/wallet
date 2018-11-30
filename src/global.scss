@@ -9,3 +9,20 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+:root{
+  --app-main-color:#2bb195;
+  --app-bg-color: #11263c;
+
+  --app-font-color: ghostwhite;
+  --app-font-sub-color: lightgrey;
+
+  --app-font-size: 20px;
+  --app-font-size2: 14px;
+}
+
+.app-error-alert{
+  .alert-title {
+    color: red;
+  }
+}

@@ -1,0 +1,191 @@
+.container{
+  height: 100%;
+  width: 100%;
+  background: var(--app-bg-color);
+  color: var(--app-font-color)
+}
+
+.header{
+  position: fixed;
+  z-index: 102;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  ion-icon{
+    font-size: 35px !important;
+    color: white !important;
+    margin-left: 5%;
+  }
+
+  span{
+    margin-right: 5%;
+    color: ghostwhite;
+    align-items: center;
+    line-height: 35px;
+    font-size: 14px;
+  }
+}
+
+.slides{
+  height: 100%;
+
+  .slide{
+    height: 100%;
+  }
+
+  --bullet-background-active: var(--app-main-color) !important;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+  bottom: 50px !important;
+}
+//.swiper-pagination-bullets{
+//  border: 5px solid red !important;
+//}
+
+.swiper-pagination {
+  bottom: 50px !important;
+}
+
+.slide{
+  ion-button{
+    --ion-color-base: var(--app-main-color) !important;
+  }
+  .titles{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+
+    .title{
+      color: var(--app-font-color);
+      font-size: var(--app-font-size);
+      margin: 0;
+      padding: 0 5% 0 5%;
+    }
+
+    .subtitle{
+      color: var(--app-font-sub-color);
+      font-size: var(--app-font-size2);
+      padding-top: 10px;
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
+
+
+  .content{
+    margin-top: 15%;
+
+    .img1{
+      width: 45%;
+      max-width: 200px;
+      position: absolute;
+      z-index: 1;
+      animation: move1 6s forwards;
+      left: 5%;
+      /* Smartphones (portrait and landscape) ----------- */
+      @media only screen
+      and (min-device-width : 320px)
+      and (max-device-width : 480px) {
+        /* Styles */
+        left: -7%;
+      }
+    }
+
+    .img2 {
+      width: 45%;
+      max-width: 90px;
+      position: absolute;
+      animation: move2 6s forwards;
+      z-index: 2;
+      right: 5%;
+    }
+
+    .img3{
+      width: 50%;
+      z-index: 3;
+    }
+  }
+
+
+  .footer{
+    p{
+      font-size: var(--app-font-size2);
+    }
+  }
+
+  .slide2{
+    img{
+      width: 50%;
+    }
+  }
+
+  .slide3{
+    .content{
+      margin-top: 60%;
+    }
+
+    .subtitle{
+      width: 80%;
+    }
+
+    .content{
+      position: relative;
+    }
+
+    .img-lock{
+      width: 60%;
+      max-width: 250px;
+      transform: rotate(15deg);
+    }
+  }
+}
+@media (min-width: 420px) {
+  .slide3 {
+    .subtitle{
+      max-width: 420px;
+    }
+  }
+}
+
+.footer{
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+
+  ion-button{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+
+}
+
+@keyframes move1 {
+  from{
+    opacity: 0;
+    top: 40%;
+  }
+  to{
+    opacity: .8;
+    top: 20%;
+  }
+}
+
+
+@keyframes move2 {
+  from{
+    opacity: 0;
+    top: 50%;
+  }
+  to{
+    opacity: .8;
+    top: 25%;
+  }
+}
+

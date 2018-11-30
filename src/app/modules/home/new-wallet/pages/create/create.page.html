@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div class="header">
+    <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
+    <div class="title">{{"home.new_wallet.create.title" | translate}}</div>
+  </div>
+
+  <div class="content">
+    <div class="main">
+      <div class="top">
+        <div class="item" [ngClass]="{'bottom-error-border': data.name.errors}">
+          <div>
+            <ion-label position="stacked" [ngStyle]="{'color': data.name.errors ? 'red' : 'green'}">{{'home.new_wallet.create.inputs.name.tips' | translate}}</ion-label>
+            <ion-input [(ngModel)]="data.name.value" (ionFocus)="nameFocus()" (ionBlur)="nameBlur()"
+                       placeholder="{{'home.new_wallet.create.inputs.name.placeholder' | translate}}">
+            </ion-input>
+          </div>
+        </div>
+
+
+        <div class="advanced">
+          <div class="item controller" (click)="showAdvanced=!showAdvanced">
+            <div *ngIf="showAdvanced">
+              <span> {{'home.new_wallet.create.inputs.advanced.hide' | translate}} </span>
+              <ion-icon name="arrow-down"></ion-icon>
+            </div>
+
+            <div *ngIf="!showAdvanced">
+              <span> {{'home.new_wallet.create.inputs.advanced.show' | translate}} </span>
+              <ion-icon name="arrow-up"></ion-icon>
+            </div>
+          </div>
+
+          <div class="hide-items" [hidden]="!showAdvanced">
+            <div class="item">
+              <div>
+                <ion-label position="stacked"> {{'home.new_wallet.create.inputs.service_url.tips' | translate}} </ion-label>
+                <ion-input [(ngModel)]="data.serverUrl.value" placeholder="{{'home.new_wallet.create.inputs.service_url.placeholder' | translate}}"></ion-input>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="btn" (click)="create()" [ngClass]="{'btn-active': data.name !== null && !data.name.errors}">
+      {{"home.new_wallet.create.btn_create" | translate}}
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+.container{
+  width: 90%;
+  max-width: 450px;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+
+
+  img{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .title{
+    top: 20px;
+    margin: 0 auto;
+    font-weight: bold;
+  }
+
+  .subtitle{
+    margin: 0 auto;
+    font-weight: 300;
+  }
+}

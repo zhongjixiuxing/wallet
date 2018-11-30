@@ -1,5 +1,7 @@
 {
   "name": "V4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

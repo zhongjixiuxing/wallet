@@ -1,0 +1,37 @@
+ion-tabs{
+  ion-tab-bar{
+    width: 80%;
+    margin: 0 auto;
+    height: 10vh;
+    max-height: 65px;
+  }
+  .bar{
+    background: #f8f8f8;
+  }
+}
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  color: white;
+
+  ion-icon{
+    font-size: 24px;
+  }
+}
+
+ion-header{
+  background: var(--ion-color-primary) !important;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary) !important;
+  .toolbar-container{
+    padding: 14px !important;
+    max-height: 60px  !important;
+  }
+}
+
+

@@ -1,0 +1,143 @@
+ion-content{
+  text-align: center !important;
+  --background: var(--app-bg-color) !important;
+  --color: var(--app-font-color);
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-bottom: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 450px;
+  margin: 0 auto;
+
+  ion-card-subtitle{
+    --color: var(--app-font-color2);
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .title{
+      width: 100%;
+      padding-left: -10px;
+    }
+
+    ion-icon{
+      font-size: 35px !important;
+      color: white !important;
+    }
+
+    ion-title{
+      position: relative;
+    }
+  }
+
+  .verify-header{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+  }
+
+  .verify-footer{
+    margin-bottom: 10%;
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background-color: var(--app-font-color);
+
+    --background: var(--app-font-color) !important;
+    color: var(--app-bg-color);
+
+    .mnemonic{
+      margin-top: 40%;
+      .text{
+        margin-top: 3%;
+        border: 2px dotted;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+
+    .btn{
+      --ion-color-base: var(--app-main-color) !important;
+    }
+
+    .mnemonicWords{
+      border: 2px dotted;
+      min-height: 30px;
+    }
+
+    .btn-word{
+      text-transform: none !important;
+    }
+  }
+}
+
+
+.toast {
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-font-color) !important;
+  color: var(--app-bg-color);
+
+  hr{
+    border-top: 1px solid #e3e0e0;
+    width: 100%;
+  }
+
+  .header{
+    height: 10vw;
+    display: flex;
+    flex-direction: row;
+
+
+    img{
+      width: 10%;
+      display: inline-block;
+      color: yellow;
+    }
+
+    ion-title{
+      position: relative;
+      padding: 0;
+      text-align: left;
+      margin-left: 15px;
+    }
+  }
+
+  span{
+    margin-top: 5%;
+    font-size: 14px;
+  }
+
+  .footer{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .item{
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .i-know{
+      color: gold;
+    }
+  }
+}

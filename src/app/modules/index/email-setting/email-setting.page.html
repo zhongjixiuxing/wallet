@@ -1,0 +1,55 @@
+
+<ion-content padding>
+    <div class="container" [ngStyle]="{'display': containerDisplay}">
+        <div class="title">
+            <ion-title>{{ 'onboarding-pages.email_setting.title' | translate }}</ion-title>
+        </div>
+
+        <img src="assets/img/onboarding/email_notify.png">
+        <ion-card-subtitle>{{ 'onboarding-pages.email_setting.subtitle' | translate }}</ion-card-subtitle>
+
+        <form [formGroup]="credentialsForm" #emailForm>
+            <ion-item lines="none" class="input">
+                <!--<ion-input [formControl]="credentialsForm.controls['email']" #emailInput (ionChange)="emailInputChange()" maxlength="30" pattern="email" required type="email" placeholder="{{ 'onboarding-pages.email_setting.input_placeholder' | translate }}"></ion-input>-->
+                <ion-input [formControl]="credentialsForm.controls['email']" (ionChange)="emailInputChange()" maxlength="30" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required type="email" placeholder="{{ 'onboarding-pages.email_setting.input_placeholder' | translate }}"></ion-input>
+            </ion-item>
+        </form>
+
+        <div class="subscribe">
+            <ion-checkbox color="primary"></ion-checkbox>
+            <!--<ion-text color="primary">-->
+                <h5>{{ 'onboarding-pages.email_setting.subscribe' | translate }}</h5>
+            <!--</ion-text>-->
+        </div>
+
+        <!-- List of Button Items -->
+        <ion-list class="buttons">
+            <ion-button #continueBtn [disabled]="!continueEnableFlag" size="large" text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" (click)="continue()">{{ 'onboarding-pages.email_setting.btn_continue' | translate }}</ion-button>
+            <ion-button text-capitalize="false" size="large" class="btn" color="success" color-focused="primary" expand="block" routerLink="/index/mnemonic_backup/index">{{ 'onboarding-pages.email_setting.btn_skip' | translate }}</ion-button>
+        </ion-list>
+    </div>
+
+    <div class="container" [ngStyle]="{'display': confirmDisplay}">
+        <div class="title">
+            <ion-title>{{ 'onboarding-pages.email_setting.title' | translate }}</ion-title>
+        </div>
+
+        <div class="content">
+            <ion-text>
+                {{ credentialsForm.value.email }}
+            </ion-text>
+            <br>
+            <ion-text>
+                {{ 'onboarding-pages.email_setting.confirm.warn' | translate }}
+            </ion-text>
+        </div>
+
+
+        <!-- List of Button Items -->
+        <ion-list class="buttons">
+            <ion-button #continueBtn size="large" [disabled]="!continueEnableFlag" text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" (click)="confirm()">{{ 'onboarding-pages.email_setting.confirm.btn_yes' | translate }}</ion-button>
+            <ion-button size="large" text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" (click)="continue()">{{ 'onboarding-pages.email_setting.confirm.btn_no' | translate }}</ion-button>
+        </ion-list>
+    </div>
+</ion-content>
+

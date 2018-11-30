@@ -1,0 +1,16 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <div class="header">
+            <ion-icon name="arrow-back" mode="md" (click)="back()"></ion-icon>
+            <ion-title>Delete Wallet</ion-title>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen padding text-center>
+    <h1 class="title">Warning</h1>
+    <span class="">Permanently delete this wallet</span>
+    <br>
+    <span class="subtitle">THIS ACTION CANNOT BE REVERSED</span>
+    <br>
+    <ion-button class="dismiss"  color="danger" expand="block" size="large"  (click)="showConfirmAlert()">Delete</ion-button>
+</ion-content>

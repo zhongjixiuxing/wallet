@@ -1,0 +1,181 @@
+{
+  "app": {
+    "errors": {
+      "service": "Error",
+      "password": "Password Error",
+      "network": "Network Error"
+    },
+    "pwd": {
+      "placeholder": "Password",
+      "label": "Password",
+      "confirm_label": "Confirm",
+      "confirm_placeholder": "Password Confirm",
+      "errors": {
+        "err": "Password Error",
+        "size": "Password size must be greater than or equal 6.",
+        "empty": "Password can not be empty!!!",
+        "not_equal": "Password and Confirm password not equal!!!"
+      }
+    },
+    "confirm": "确定",
+    "cancel": "取消",
+    "ok": "好的",
+    "yes": "是",
+    "no": "否",
+    "goback": "返回",
+    "i_am_sure": "我确定"
+  },
+  "onboarding-pages": {
+    "index": {
+      "title": "Take control of your money, get started with tokens.",
+      "get-started": "Get started",
+      "restore": "Restore from backup"
+    },
+    "slides": {
+      "header": {
+        "skip":"跳过"
+      },
+      "slide1": {
+        "title":"区块链是未来的潮流",
+        "sub-title": "你可以花比特币在数以百万计的网站和世界各地的商店",
+        "footer-tip": "支持扫描来支付",
+        "footer-button": "知道了"
+      },
+      "slide2": {
+        "title": "数字货币在全球互联网是一种通用的凭证",
+        "sub-title":"BTC、ETH、EOS等等的货币支持交易的物品越来越多了，有未来法币作用的潮流",
+        "footer-tip": "BTC作为第一种数字货币，至今经久不衰",
+        "footer-button": "有道理"
+      },
+      "slide3": {
+        "title": "我们可以协助保护你的资产更加安全",
+        "sub-title":"主流区块链网络安全诞生至今尚未有任何的黑客or组织能够攻破，久经实际的演练，是相对安全可以的。我们客户端、服务端采用钱包证书分离模式，客户端采用本地证书签名交易，然后将交易传输到服务端进行广播交易。",
+        "footer-tip": "我们承诺，绝不收集、存储客户任何证书和密码",
+        "footer-button": "创建钱包"
+      },
+      "password-alert": {
+        "title":"你想使用密码保护这个钱包吗？",
+        "text":"如果此设备被盗或被恶意软件破坏，加密可以保护您的资金。",
+        "btn_cancel":"否",
+        "btn_confirm":"是",
+        "createAlert": {
+          "title":"请输入密码加密你的钱包",
+          "text":"此密码仅适用于此设备并且无法恢复，为了避免吊饰资金，请牢牢记住你的密码",
+          "btn_confirm":"确定",
+          "btn_cancel":"取消"
+        }
+      }
+    },
+    "email_setting": {
+      "title":"设置电子邮件通知",
+      "subtitle":"在哪里你想要接受电子邮件同志有关付款",
+      "input_placeholder":"电子邮件",
+      "subscribe":"从anxing.io获取新闻和更新",
+      "btn_continue":"继续",
+      "btn_skip":"跳过",
+      "confirm":{
+        "warn": "此电子邮件地址是否正确？",
+        "btn_yes":"确定",
+        "btn_no":"返回编辑"
+      }
+    },
+    "mnemonic_bk":{
+      "title": "钱包掉失，没有备份就掉失一切",
+      "subtitle": "备份能够恢复钱包，在你忘记or掉失钱包的时候",
+      "tip":"我们保证，你的钱包永远不会保存到云存储或其他设备备份",
+      "btn_backup": "备份钱包",
+      "btn_skip": "以后再做"
+    },
+    "check_env": {
+      "title": "你正在被监视吗？",
+      "subtitle": "现在审视下四周环境，附近窗户？隐匿的摄像头？碟中谍？",
+      "tip":"根据助记词密码，任何人都可以访问并且控制你的钱包",
+      "btn":"嗯，知道了",
+      "toast": {
+        "title": "截屏是一种不安全的操作",
+        "content": "如果你截屏保存，你的截屏图片保存在联网设备上，很可能被黑客访问到。你应该采用一张纸，用笔把它记下来",
+        "yes": "明白",
+        "no": "返回#"
+      }
+    },
+    "mnemonic_verify": {
+      "title": "备份",
+      "notice": "请仔细记下下面的单词",
+      "tip": "我们将在下一幕确认",
+      "btn_know": "我已经写下",
+      "verify":{
+        "title": "来验证下你刚才记下的内容",
+        "tip": "请按照顺序正确点击刚才你记住的单词",
+        "btn_confirm": "确认",
+        "btn_reset": "撤销重做",
+        "error": {
+          "title": "My God...",
+          "text": "你当前的密码助记词是错误的，请返回重新确认"
+        }
+      }
+    },
+    "agreement": {
+      "title":"差不多完成了！让我们回顾一下",
+      "subtitle": "区块链技术是特别的 - 它提供一种安全可靠的去中心化服务",
+      "provisions": {
+        "item1": "我理解我的助记词控制的密码助记词控制的账号、数据，是在这个设备上被安全持有, 而不是由一家公司所持有",
+        "item2": "I understand that if this app is moved to another device or deleted, my bitcoin can only be recovered with the recovery phrase",
+        "item3": "我明确同意anxing.io使用我的电子邮件地址向我发送关于账号数据变动的通知邮件(如果有选择，发送相关的更新内容和资讯)"
+      },
+      "final_provision": "我已阅读、理解上述并同意使用本条款",
+      "final_detail": "使用条款",
+      "detail": "查看详细的隐私政策",
+      "btn_confirm": "同意并保存"
+    }
+  },
+  "home": {
+    "empty_wallets": {
+      "title": "No wallets available",
+      "subtitle": "Create a new wallet to start using this app",
+      "btn_create": "Create a new wallet"
+    },
+    "wallet_list": {
+      "title": "Wallets"
+    },
+    "new_wallet": {
+      "index": {
+        "title": "New Wallet",
+        "wallet_types": {
+          "personal": {
+            "title": "Create personal wallet"
+          }
+        }
+      },
+      "create": {
+        "title": "Create Personal Wallet",
+        "btn_create": "Create Wallet",
+        "inputs":{
+          "name": {
+            "placeholder": "Enter Wallet Name",
+            "tips": "wallet name"
+          },
+          "advanced": {
+            "show": "Show advanced options",
+            "hide": "Hide advanced options"
+          },
+          "service_url": {
+            "placeholder": "Enter Wallet Service Url",
+            "tips": "service url"
+          }
+        },
+        "pwd_alert": {
+          "title": "Create password to protect this wallet",
+          "subtitle": "Encryption can protect you wallet data(tokens), if this device is stolen or compromised by malicious software"
+        },
+        "pwd_input_alert": {
+          "title": "Enter a password to encrypt your wallet",
+          "subtitle": "This password is only for this device, and it can not be recovered. To avoid losing funds(data), write your password down or keep firmly in mind!"
+        },
+        "confirm_cancel_alert": {
+          "title": "Are you sure?",
+          "subtitle": "Without encrypt password, a thief or another application on this device may be able to access/control your wallet data(funds)"
+        }
+      }
+    }
+  }
+}

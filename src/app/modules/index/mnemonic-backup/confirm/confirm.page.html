@@ -1,0 +1,69 @@
+<ion-content padding *ngIf="newWallet">
+<!--<ion-content padding *ngIf="storage.tempData.newWallet">-->
+    <div class="container">
+        <div class="header" padding="">
+            <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
+            <div class="title">
+                <ion-title>{{ 'onboarding-pages.mnemonic_verify.title' | translate }}</ion-title>
+            </div>
+
+        </div>
+
+        <div class="content" *ngIf="!isVerify" padding>
+            <div class="mnemonic">
+                <ion-card-subtitle>{{ 'onboarding-pages.mnemonic_verify.notice' | translate }}</ion-card-subtitle>
+
+                <div class="text" padding>
+                    <span>
+                        {{newWallet.mnemonic}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="footer">
+                <ion-card-subtitle>{{ 'onboarding-pages.mnemonic_verify.tip' | translate }}</ion-card-subtitle>
+
+                <ion-button size="large" text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" (click)="toggleVerify()"> {{ 'onboarding-pages.mnemonic_verify.btn_know' | translate }}</ion-button>
+            </div>
+        </div>
+
+        <div class="content" *ngIf="isVerify" padding>
+            <div class="header verify-header">
+                <ion-card-subtitle>{{ 'onboarding-pages.mnemonic_verify.verify.title' | translate }}</ion-card-subtitle>
+                <div class="mnemonicWords" padding>
+                    <ion-button class="btn-word" text-capitalize="false" size="small" fill="outline" *ngFor="let word of clickMnemonicWords">
+                        {{word}}
+                    </ion-button>
+                </div>
+            </div>
+
+            <div class="footer verify-footer">
+                <ion-card-subtitle *ngIf="mnemonicWords.length > 0">{{ 'onboarding-pages.mnemonic_verify.verify.tip' | translate }}</ion-card-subtitle>
+
+                <ion-button class="btn-word" text-capitalize="false" size="small" *ngFor="let word of mnemonicWords" (click)="mnemonicWordClick(word)">
+                    {{word}}
+                </ion-button>
+
+                <div class="buttons" *ngIf="mnemonicWords.length == 0">
+                    <ion-button text-capitalize="false" class="btn" color="success" expand="block" size="large" (click)="verify()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_confirm' | translate }}</ion-button>
+                    <ion-button text-capitalize="false" class="btn" color="success" expand="block" size="large" (click)="restartConfirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_reset' | translate }}</ion-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<div class="toast" *ngIf="errors" padding>
+    <div class="header">
+        <img class="warning-img" src="/assets/img/sold-warning.svg">
+        <ion-title>{{ 'onboarding-pages.mnemonic_verify.verify.error.title' | translate }}</ion-title>
+    </div>
+
+    <span>{{ 'onboarding-pages.mnemonic_verify.verify.error.text' | translate }}</span>
+
+    <hr style="width: 100%; color: ghostwhite">
+
+    <div class="footer">
+        <a class="i-know item" (click)="restartConfirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_reset' | translate }}</a>
+    </div>
+</div>

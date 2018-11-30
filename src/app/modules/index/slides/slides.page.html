@@ -1,0 +1,78 @@
+<div class="container">
+    <!--<ion-alert-controller #alert></ion-alert-controller>-->
+    <div class="header">
+        <ion-icon name="arrow-round-back" (click)="slidePrev()"></ion-icon>
+        <span (click)="skip()">{{ 'onboarding-pages.slides.header.skip' | translate }}</span>
+    </div>
+
+    <ion-slides pager="true" class="slides" #slides
+                [options]="slideOpts">
+        <ion-slide class="slide">
+            <div class="slide1">
+                <div class="titles">
+                    <p class="title">
+                        {{ 'onboarding-pages.slides.slide1.title' | translate }}
+                    </p>
+                    <p class="subtitle">
+                        {{ 'onboarding-pages.slides.slide1.sub-title' | translate }}
+                    </p>
+                </div>
+
+                <div class="content">
+                    <img class="img1" src="assets/img/onboarding/statue_of_liberty_PNG35.png">
+                    <img class="img2" src="assets/img/onboarding/lighthouse_PNG6.png">
+                    <img class="img3" src="assets/img/onboarding/qr-code.png">
+                </div>
+
+                <div class="footer">
+                    <p>{{ 'onboarding-pages.slides.slide1.footer-tip' | translate }}</p>
+                    <ion-button class="btn" color="success" expand="block" size="large" (click)="next()">{{ 'onboarding-pages.slides.slide1.footer-button' | translate }}</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <div class="slide2">
+                <div class="titles">
+                    <p class="title">
+                        {{ 'onboarding-pages.slides.slide2.title' | translate }}
+                    </p>
+                    <p class="subtitle">
+                        {{ 'onboarding-pages.slides.slide2.sub-title' | translate }}
+                    </p>
+                </div>
+
+                <div class="content">
+                    <img src="assets/img/onboarding/bitcoin_PNG11.png">
+                </div>
+
+                <div class="footer">
+                    <p>{{ 'onboarding-pages.slides.slide2.footer-tip' | translate }}</p>
+                    <ion-button class="btn" color="success" expand="block" size="large" (click)="next()">{{ 'onboarding-pages.slides.slide2.footer-button' | translate }}</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <div class="slide3">
+                <div class="titles">
+                    <p class="title">
+                        {{ 'onboarding-pages.slides.slide3.title' | translate }}
+                    </p>
+                    <p class="subtitle">
+                        {{ 'onboarding-pages.slides.slide3.sub-title' | translate }}
+                    </p>
+                </div>
+
+                <div class="content">
+                    <img class="img-lock" src="assets/img/onboarding/padlock_PNG9400.png">
+                </div>
+
+                <div class="footer">
+                    <p>{{ 'onboarding-pages.slides.slide3.footer-tip' | translate }}</p>
+                    <ion-button class="btn" color="success" expand="block" size="large" (click)="next()">{{ 'onboarding-pages.slides.slide3.footer-button' | translate }}</ion-button>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</div>

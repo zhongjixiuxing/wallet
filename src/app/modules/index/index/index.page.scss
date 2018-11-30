@@ -1,0 +1,35 @@
+.container{
+  height: 100%;
+  width: 100%;
+  background: var(--app-bg-color);
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo{
+  padding-top: 25px;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.text{
+  color: #f2f2f282;
+  text-align: center;
+  font-size: 18px;
+  padding-top: -10px;
+}
+
+.buttons{
+  margin: 0 auto;
+  width: 85%;
+  max-width: 350px;
+  padding-bottom: 20px;
+}
+
+.btn{
+  --ion-color-base: var(--app-main-color) !important;
+  --border-radius: 5px;
+  font-weight: normal;
+}

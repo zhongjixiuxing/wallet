@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="header">
+    <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
+    <div class="title">{{"home.new_wallet.index.title" | translate}}</div>
+  </div>
+  <div class="content">
+    <div class="select">
+      <ion-card class="item" routerLink="/home/new_wallet/create">
+        <ion-icon name="wallet"></ion-icon>
+
+        <span>{{"home.new_wallet.index.wallet_types.personal.title" | translate}}</span>
+      </ion-card>
+    </div>
+  </div>
+
+</div>

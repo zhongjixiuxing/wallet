@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AX</string>
+    <string name="title_activity_main">AX</string>
+    <string name="package_name">com.anxing.org</string>
+    <string name="fileprovider_authority">com.anxing.org.fileprovider</string>
+    <string name="custom_url_scheme">com.anxing.org</string>
+</resources>

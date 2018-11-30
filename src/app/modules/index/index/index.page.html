@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div>
+        <div class="logo">
+            <img src="assets/img/logo.png">
+        </div>
+
+        <p class="text">{{ 'onboarding-pages.index.title' | translate }}</p>
+    </div>
+
+    <div class="buttons">
+        <ion-button text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" size="large" routerLink="/index/slides">{{ 'onboarding-pages.index.get-started' | translate }}</ion-button>
+        <ion-button text-capitalize="false" class="btn" color="success" expand="block" size="large" fill="clear" (click)="gotoGetStart()">{{ 'onboarding-pages.index.restore' | translate }}</ion-button>
+    </div>
+</div>

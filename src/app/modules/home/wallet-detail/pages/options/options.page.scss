@@ -1,0 +1,118 @@
+* {
+  color: white;
+}
+
+ion-tabs{
+  ion-tab-bar{
+    width: 80%;
+    margin: 0 auto;
+    height: 10vh;
+    max-height: 65px;
+  }
+  .bar{
+    background: #f8f8f8;
+  }
+}
+
+ion-content{
+  --padding: 0px !important;
+}
+
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+
+  ion-icon{
+    font-size: 24px;
+    color: var(--app-font-color);
+  }
+
+  .title{
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary) !important;
+  --border-width: 0 !important;
+  border: 1px solid red;
+  .toolbar-container{
+    padding: 14px !important;
+    max-height: 60px  !important;
+  }
+
+  .header-md:after{
+    height: 0px !important;
+  }
+
+}
+
+
+.main{
+  background-color: ghostwhite;
+
+  .top{
+    height: 60px;
+    text-align: -webkit-left;
+    display: flex;
+    align-items: flex-end;
+    font-size: 25px;
+    background: var(--ion-color-primary);
+    color: var(--app-font-color);
+    font-weight: 500;
+
+    .label{
+      --background: var(--ion-color-primary);
+      --highlight-height: 0 !important;
+      --inner-border-width: 0 !important;
+
+      font-size: 24px;
+      color: var(--app-font-color);
+
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+  }
+
+  .options{
+    margin-top: 20px;
+    .item{
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      border-bottom: 0.55px solid lightgrey;
+      font-weight: 500;
+      .key{
+        color: #41484b;
+      }
+
+      .value{
+        color: dimgray;
+      }
+
+
+
+      margin: 0 auto;
+    }
+
+    .advanced{
+      background: ghostwhite;
+      font-weight: normal;
+    }
+
+    .delete-wallet{
+      color: coral  !important;
+    }
+  }
+}
+
+

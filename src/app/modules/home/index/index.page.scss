@@ -1,0 +1,61 @@
+
+.title{
+  height: 9%;
+  background-color: var(--app-bg-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    color: var(--app-font-color);
+    font-size: 22px;
+    font-weight: bold;
+    display: inline-flex;
+    font-family: fantasy;
+  }
+
+  ion-icon{
+    color: var(--app-font-color);
+    font-size: 26px;
+    right: 5%;
+    position: fixed;
+  }
+}
+
+.container {
+  height: 91%;
+  position: relative;
+  background: none !important;
+  scroll-behavior: auto;
+  overflow-y: scroll;
+
+  .header-bg{
+    height: 9%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--app-bg-color);
+    z-index: -1;
+  }
+
+  .content{
+    margin: 0 auto;
+
+    p: {
+      background-color: transparent;
+    }
+  }
+}
+
+
+.inner-scroll{
+  background: none !important;
+}
+.scroll-y {
+  background: none !important;
+}
+.overscroll{
+  background: none !important;
+}

@@ -1,0 +1,48 @@
+<ion-content padding>
+  <div class="container">
+    <div class="content">
+      <div class="titles">
+        <ion-title>{{ 'onboarding-pages.agreement.title' | translate }}</ion-title>
+
+        <ion-card-subtitle >{{ 'onboarding-pages.agreement.subtitle' | translate }}</ion-card-subtitle>
+      </div>
+
+      <div class="provisions">
+        <div class="item">
+          <ion-checkbox [(ngModel)]="provisionItem1"></ion-checkbox>
+          <ion-card-subtitle class="light-color" text-capitalize="false">{{ 'onboarding-pages.agreement.provisions.item1' | translate }}</ion-card-subtitle>
+        </div>
+        <div class="item">
+          <ion-checkbox [(ngModel)]="provisionItem2"></ion-checkbox>
+          <ion-card-subtitle class="light-color" text-capitalize="false">{{ 'onboarding-pages.agreement.provisions.item2' | translate }}</ion-card-subtitle>
+        </div>
+        <div class="item">
+          <ion-checkbox [(ngModel)]="provisionItem3"></ion-checkbox>
+          <ion-card-subtitle class="light-color" text-capitalize="false">{{ 'onboarding-pages.agreement.provisions.item3' | translate }}</ion-card-subtitle>
+        </div>
+
+        <br>
+        <div class="detail">
+          <ion-card-subtitle text-capitalize="false">{{ 'onboarding-pages.agreement.detail' | translate }}</ion-card-subtitle>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="content">
+        <div class="final" padding *ngIf="provisionItem3 && provisionItem2 && provisionItem1">
+          <div class="item">
+            <ion-checkbox [(ngModel)]="finalProvision"></ion-checkbox>
+            <ion-card-subtitle class="light-color" text-capitalize="false">{{ 'onboarding-pages.agreement.final_provision' | translate }}</ion-card-subtitle>
+          </div>
+
+          <div class="detail">
+            <ion-card-subtitle text-capitalize="false">{{ 'onboarding-pages.agreement.final_detail' | translate }}</ion-card-subtitle>
+          </div>
+        </div>
+
+        <ion-button [disabled]="!finalProvision" text-capitalize="false" class="btn" color="success" expand="block" size="large" (click)="confirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_confirm' | translate }}3</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

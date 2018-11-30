@@ -1,0 +1,93 @@
+ion-card{
+  max-width: 450px;
+  margin: 0 auto;
+
+  ion-card-content{
+    background: #fff;
+  }
+}
+
+.title{
+  border-bottom: 1px solid gainsboro;
+  padding: 14px;
+  font-size: 26px;
+  background: #ffffff;
+
+  .content{
+    display: flex;
+  }
+
+  .text{
+    font-size: 14px;
+    line-height: 22px;
+    margin-left: 5px;
+    font-weight: bold;
+  }
+
+  .wallet-icon{
+    font-size: 20px;
+  }
+
+  .add-icon{
+    position: absolute;
+    font-size: 24px;
+    right: 16px;
+  }
+
+}
+
+.container{
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  padding: 16px;
+}
+
+.content{
+  .wallets{
+    .wallet{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon{
+        display: flex;
+        height: 40px;
+        width: 47.85px;
+        justify-content: center;
+        line-height: 40px;
+        border-radius: 50%;
+        font-size: 22px;
+        background-color: cornsilk;
+        ion-icon{
+          //height: 100%;
+          //border: 1px solid red;
+        }
+      }
+
+      .content{
+        width: 100%;
+        height: 65px;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #000;
+
+        .name{
+          line-height: 1;
+          font-size: 17px;
+        }
+        .subtext{
+          line-height: 1;
+          font-size: 12px;
+          font-weight: lighter;
+          color: #6f6969;
+        }
+      }
+    }
+  }
+}
+
+.wallets .wallet:not(:last-child) .content {
+  border-bottom: 1px solid lightgrey;
+}

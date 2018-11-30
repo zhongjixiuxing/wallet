@@ -1,0 +1,38 @@
+<ion-content padding>
+  <div class="container">
+    <div class="header">
+      <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
+    </div>
+
+    <div class="title">
+      <ion-title>{{ 'onboarding-pages.check_env.title' | translate }}</ion-title>
+      <br>
+      <ion-card-subtitle>{{ 'onboarding-pages.check_env.subtitle' | translate }}</ion-card-subtitle>
+    </div>
+
+
+    <img src="/assets/img/onboarding/hacker_PNG1.png" alt="">
+
+    <div class="footer">
+      <ion-card-subtitle>{{ 'onboarding-pages.check_env.tip' | translate }}</ion-card-subtitle>
+      <br>
+      <ion-button size="large" text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" (click)="toggleToast()">{{ 'onboarding-pages.check_env.btn' | translate }}</ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<div class="toast" *ngIf="isToast" padding>
+  <div class="header">
+    <img class="warning-img" src="/assets/img/sold-warning.svg">
+    <ion-title>{{ 'onboarding-pages.check_env.toast.title' | translate }}</ion-title>
+  </div>
+
+  <span>{{ 'onboarding-pages.check_env.toast.content' | translate }}</span>
+
+  <hr style="width: 100%; color: ghostwhite">
+
+  <div class="footer">
+    <a class="i-know item" (click)="continue()">{{ 'onboarding-pages.check_env.toast.yes' | translate }}</a>
+    <a class="item" (click)="toggleToast()">{{ 'onboarding-pages.check_env.toast.no' | translate }}</a>
+  </div>
+</div>
