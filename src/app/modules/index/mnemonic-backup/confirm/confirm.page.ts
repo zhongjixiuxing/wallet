@@ -57,7 +57,9 @@ export class MnemonicBkConfirmPage implements OnInit {
             return this.toggleVerify();
         }
 
-        this.location.back();
+        this.zone.run(() => {
+            this.location.back();
+        });
     }
 
     mnemonicWordClick(word){

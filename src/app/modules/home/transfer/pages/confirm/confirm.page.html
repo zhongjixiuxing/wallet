@@ -1,0 +1,90 @@
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <div class="header">
+      <ion-icon name="arrow-round-back" mode="ios" (click)="goback()"></ion-icon>
+      <ion-title text-center>
+        Confirm
+      </ion-title>
+      <div class="cancel" (click)="goback()">
+        Cancel
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="wallet" scroll-y>
+  <div class="container" padding>
+    <div class="top item">
+      <div class="left">
+        <div class="sending">
+          Sending
+        </div>
+        <div class="amount">
+          <span class="value">{{amount}}</span>&nbsp;&nbsp;<span class="unit">{{wallet.currentCoin | uppercase}}</span>
+        </div>
+
+        <div class="usdAmount">
+          <span class="value">{{usdAmount}}</span>&nbsp;&nbsp;USD
+        </div>
+      </div>
+
+      <div class="right">
+        <ion-icon name="cloud-upload" class="animated bounceInUp delay-1s"></ion-icon>
+      </div>
+    </div>
+
+
+    <div class="amounts item" (click)="openModal()" *ngIf="level">
+      <div class="title">minner fee: </div>
+      <div class="fee-type">{{level.level}}</div>
+      <div class="total-amount">
+        <div class="fee-amount">
+            <span class="value">{{fee}}</span>&nbsp;&nbsp;<span class="unit">{{wallet.currentCoin | uppercase}}</span>
+            &nbsp;<span class="rate"> ({{level.value}} sat/kb) </span>
+        </div>
+        <div class="fee-btc-amount">
+            <span class="value">{{fee | walletAmountToUSD:'BTC' | async}}</span>&nbsp;&nbsp;USD
+        </div>
+      </div>
+
+      <div class="total-usd-amount">
+      </div>
+    </div>
+
+    <div class="to item">
+      <div>To</div>
+      <div class="content">
+        <div><ion-icon name="rocket"></ion-icon></div>
+        <span>{{recipient}}</span>
+      </div>
+    </div>
+
+    <div class="from item">
+      <div>Form</div>
+      <div class="content">
+        <div><ion-icon name="ribbon"></ion-icon></div>
+        <span>{{wallet.name}}</span>
+      </div>
+    </div>
+
+    <div class="memo item">
+      <div>Memo</div>
+
+      <ion-input [(ngModel)]="memo"> </ion-input>
+    </div>
+  </div>
+</ion-content>
+
+
+
+<ion-footer>
+
+  <div class="footer" (click)="send()">
+    Click to send
+  </div>
+
+</ion-footer>

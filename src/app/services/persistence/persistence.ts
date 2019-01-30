@@ -8,6 +8,7 @@ import { PlatformService } from '../platform/platform';
 import { FileStorage } from './storage/file-storage';
 import { LocalStorage } from './storage/local-storage';
 import { RamStorage } from './storage/ram-storage';
+import {letProto} from 'rxjs-compat/operator/let';
 
 
 export interface FeedbackValues {
@@ -85,8 +86,30 @@ export class PersistenceService {
      * @return {Promise<void>}
      */
     public async setProfile(profile) {
-        let storageData = _.isString(profile) ?  profile : JSON.stringify(profile);
+        let storageData = _.isString(profile) ?  profile : this.formatProfile(profile);
+
         return await this.storage.set(Keys.PROFILE, storageData);
+    }
+
+    formatProfile(profile) {
+        /*
+            to fix Wallet.coin Map toString issue
+
+         */
+        let temp = JSON.parse(JSON.stringify(profile));
+        let wallets = [];
+        for (let i=0; i<profile.wallets.length; i++) {
+            let wallet = profile.wallets[i];
+            let walletInfo = JSON.parse(JSON.stringify(wallet));
+
+            wallet.coins.forEach((coinCfg, coin) => {
+                walletInfo.coins[coin] = coinCfg;
+                wallets.push(walletInfo)
+            });
+        }
+
+        temp.wallets = wallets;
+        return JSON.stringify(temp);
     }
 
 
@@ -94,7 +117,12 @@ export class PersistenceService {
      * @return {Promise<any>}
      */
     public async getProfile() {
-        return await this.storage.get(Keys.PROFILE);
+        try {
+            return await this.storage.get(Keys.PROFILE);
+        } catch (err) {
+            this.logger.error('[PersistenceService] [getProfile] error: ', err);
+        }
+
     }
 }
 

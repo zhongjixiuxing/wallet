@@ -3,7 +3,9 @@ import { DirectoryEntry, File, FileSystem } from '@ionic-native/file/ngx';
 import * as _ from 'lodash';
 import { Logger } from '../../logger/logger';
 import { IStorage, KeyAlreadyExistsError } from './istorage';
+// import * as FileReader from 'cordova-plugin-file/www/FileReader';
 
+// ionic integrations enable cordova --quiet
 @Injectable({
     providedIn: 'root'
 })
@@ -11,10 +13,11 @@ export class FileStorage implements IStorage {
   fs: FileSystem;
   dir: DirectoryEntry;
 
-  constructor(private file: File, private log: Logger) {}
+  constructor(private file: File, private log: Logger) {
+  }
 
-  init(): Promise<any> {
-    return new Promise((resolve, reject) => {
+  async init() {
+    return await new Promise((resolve, reject) => {
       if (this.fs && this.dir) return resolve();
 
       let onSuccess = (fs: FileSystem): Promise<any> => {
@@ -43,7 +46,7 @@ export class FileStorage implements IStorage {
       return Promise.reject(new Error('Could not write on device storage'));
     }
 
-    var url = this.file.dataDirectory;
+    let url = this.file.dataDirectory;
     return this.file.resolveDirectoryUrl(url).catch(err => {
       let msg = 'Could not resolve filesystem ' + url;
       this.log.warn(msg, err);
@@ -63,27 +66,29 @@ export class FileStorage implements IStorage {
     return parsed || v;
   }
 
-  readFileEntry(fileEntry): Promise<any> {
-    return new Promise((resolve, reject) => {
-      fileEntry.file(file => {
-        var reader = new FileReader();
+  async readFileEntry(fileEntry) {
+    return await new Promise((resolve, reject) => {
+        fileEntry.file(file => {
+            // 在polyfills.ts 已经做好全局兼容处理了
+            // reader = reader['__zone_symbol__originalInstance'];
+            let reader = new FileReader();
 
-        reader.onerror = () => {
-          reader.abort();
-          return reject();
-        };
+            reader.onerror = () => {
+              reader.abort();
+              return reject();
+            };
 
-        reader.onloadend = () => {
-          return resolve(this.parseResult(reader.result));
-        };
+            reader.onloadend = () => {
+                return resolve(this.parseResult(reader.result));
+            };
 
-        reader.readAsText(file);
+            reader.readAsText(file);
       });
     });
   }
 
-  get(k: string): Promise<any> {
-    return new Promise(resolve => {
+  async get(k: string) {
+    return await new Promise(resolve => {
       this.init()
         .then(() => {
           this.file
@@ -95,11 +100,12 @@ export class FileStorage implements IStorage {
                 .then(result => {
                   return resolve(result);
                 })
-                .catch(() => {
+                .catch((err) => {
                   this.log.error('Problem parsing input file.');
                 });
             })
             .catch(err => {
+              this.log.error(`get [${k}] storage error: `, err);
               // Not found
               if (err.code == 1) return resolve();
               else throw err;

@@ -2,5 +2,8 @@
   "appId": "com.anxing.org",
   "appName": "AX",
   "bundledWebRuntime": false,
-  "webDir": "www"
+  "webDir": "www",
+  "ios":{
+    "cordovaSwiftVersion": "3.2"
+  }
 }

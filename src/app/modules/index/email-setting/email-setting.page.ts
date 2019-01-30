@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Button} from "@ionic/angular";
+import {IonButton} from "@ionic/angular";
 import {Form, FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {Router} from "@angular/router";
 import {ProfileService} from '../../../services/profile.service';
@@ -11,7 +11,7 @@ import {ProfileService} from '../../../services/profile.service';
 })
 export class EmailSettingPage implements OnInit {
 
-    @ViewChild('continueBtn') continueBtn: Button;
+    @ViewChild('continueBtn') continueBtn: IonButton;
 
     credentialsForm: FormGroup;
 

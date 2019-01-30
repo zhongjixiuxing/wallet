@@ -1,36 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
 import {TranslateService} from "@ngx-translate/core";
-import {AppService} from "./services/app.service";
-import {ProfileService} from './services/profile.service';
 import {Router} from '@angular/router';
+import {QrScanner} from './services/qrscanner/qrscanner';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent {
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private translate: TranslateService,
-    private appService: AppService,
-    private router: Router
+    private router: Router,
+    private qrScanner: QrScanner
   ) {
       translate.setDefaultLang('en');
-    this.initializeApp();
   }
 
-  initializeApp() {
-    this.platform.ready().then(async () => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-
-      await this.appService.init();
-    });
+  closeQrScanner() {
+    console.log('close ----------------------------------- ');
+    this.qrScanner.destroy();
   }
+
+    async reverseLight() {
+      await this.qrScanner.reverseLight();
+    }
+
+    async reverseScanner() {
+      await this.qrScanner.reverseCamera();
+    }
+
 }

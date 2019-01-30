@@ -149,7 +149,7 @@ export class PopupService {
      * @return {Promise<HTMLIonLoadingElement>}
      */
     public async ionicCustomLoading(options) {
-        const loading = await this.loadingCtrl.create();
+        const loading = await this.loadingCtrl.create(options);
         await loading.present();
         return loading;
     }

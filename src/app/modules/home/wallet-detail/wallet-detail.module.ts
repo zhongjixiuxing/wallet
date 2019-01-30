@@ -10,7 +10,16 @@ import {ActivityPage} from './pages/activity/activity.page';
 import {ReceivePage} from './pages/receive/receive.page';
 import {SendPage} from './pages/send/send.page';
 import {OptionsPage} from './pages/options/options.page';
-import {DeleteWarningPage} from './pages/options/modals/delete-warning.page';
+import {DeleteWarningPage} from './pages/options/modals/delete-warning/delete-warning.page';
+import { QRCodeModule } from 'angularx-qrcode';
+import {CustomAddressModalPage} from './pages/receive/custom-address-modal/custom-address-modal.page';
+import {CopiedPopPage} from './pages/receive/copied-pop/copied-pop.page';
+import {CreateAddressPage} from './pages/options/modals/create-address/create-address.page';
+import {UsbTransferPipe} from '../../../pipes/usb-transfer.pipe';
+import {WalletTxsPipe} from '../../../pipes/wallet-txs.pipe';
+import {GroupTxsPipe} from '../../../pipes/group-txs.pipe';
+import {AppPipeModule} from '../../../pipes/app-pipe.module';
+import {TxDetailPage} from './pages/tx-detail/tx-detail.page';
 
 @NgModule({
   imports: [
@@ -19,18 +28,31 @@ import {DeleteWarningPage} from './pages/options/modals/delete-warning.page';
     FormsModule,
     TranslateModule,
     IndexPageRoutingModule,
+      AppPipeModule,
+      QRCodeModule
   ],
   declarations: [
+      // UsbTransferPipe,
+      WalletTxsPipe,
+      GroupTxsPipe,
       IndexPage,
       WalletDetailPage,
       ActivityPage,
       ReceivePage,
       SendPage,
       OptionsPage,
-      DeleteWarningPage
+      DeleteWarningPage,
+      CreateAddressPage,
+      CustomAddressModalPage,
+      CopiedPopPage,
+      TxDetailPage
   ],
   entryComponents: [
-      DeleteWarningPage
+      DeleteWarningPage,
+      CreateAddressPage,
+      CustomAddressModalPage,
+      CopiedPopPage
   ]
 })
-export class WalletDetailModule {}
+export class WalletDetailModule {
+}

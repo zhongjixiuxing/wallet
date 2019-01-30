@@ -36,7 +36,7 @@ export class AgreementPage implements OnInit {
     ngOnInit() {
     }
 
-    public async init() {
+    async init() {
         let newWallet = await this.persistence.getTempporaryData('newWallet');
         if (!newWallet || !newWallet.hasOwnProperty('mnemonic')) {
             this.router.navigate(['/index']);
@@ -44,11 +44,13 @@ export class AgreementPage implements OnInit {
         }
 
         this.newWallet = newWallet;
+        return;
     }
 
     async confirm() {
         try {
             this.newWallet.id = uuid();
+            this.newWallet.name = 'my-first-wallet';
 
             this.profileService.addWallet(this.newWallet);
             this.profileService.setIsInit(true);

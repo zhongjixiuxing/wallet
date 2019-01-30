@@ -1,21 +1,25 @@
-<div class="title">
-  <span>AnXing</span>
-  <ion-icon name="settings"></ion-icon>
-</div>
+<ion-header class="title">
+  <ion-toolbar text-center>
+    <span>AnXing</span>
+    <ion-icon name="settings" (click)="jump('/home/setting')"></ion-icon>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content>
+  <div class="container" style="background: none;">
+    <div class="header-bg">
+    </div>
 
-
-<div class="container" style="background: none;">
-  <div class="header-bg">
+    <div class="content">
+      <ng-template app-home-card-directive></ng-template>
+    </div>
   </div>
 
-  <div class="content">
-    <ng-template app-home-card-directive></ng-template>
-  </div>
-</div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="qrScan()">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button>
-    <ion-icon name="qr-scanner"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+

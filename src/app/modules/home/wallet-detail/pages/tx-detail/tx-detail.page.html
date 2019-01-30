@@ -1,0 +1,94 @@
+<!--<ion-header class="header" no-padding>-->
+  <!--<ion-icon name="arrow-round-back" mode="md"></ion-icon>-->
+  <!--<ion-toolbar text-center>-->
+    <!--<ion-label *ngIf="tx">-->
+      <!--{{tx.category}}-->
+    <!--</ion-label>-->
+  <!--</ion-toolbar>-->
+<!--</ion-header>-->
+
+<ion-header>
+  <ion-toolbar>
+    <div class="header">
+      <ion-icon name="arrow-round-back" mode="md" (click)="goback()"></ion-icon>
+      <ion-title text-center *ngIf="tx">
+        {{tx.category}}
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="txDetail">
+    <div class="top" padding>
+      <div class="coin">Coin</div>
+      <div class="amount">
+        <span class="value">{{totalOutputAmount}} <span class="unit">BTC</span> </span>
+        <ion-icon name="log-out" mode="md"></ion-icon>
+      </div>
+      <div class="usb-amount">
+        {{totalOutputAmount | walletAmountToUSD:'BTC' | async }} USD
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="fee" padding>
+      <div class="title">Fee</div>
+
+      <span>{{fee}} {{coin}}</span>
+
+      <span>{{fee | walletAmountToUSD:'BTC' | async }} USD</span>
+
+      <span>{{(fee / totalInputAmount * 100) | number:'1.0-3'}}% of total amount</span>
+    </div>
+
+    <hr>
+
+    <div class="to" padding>
+      <div class="title">To</div>
+
+      <div class="lists">
+        <div *ngFor="let output of txDetail.txd.outputs; let oIndex = index">
+          <div class="item">
+            <div class="left">
+              <ion-icon name="person" mode="md"></ion-icon>
+            </div>
+
+            <div class="right">
+              <span class="addr">{{output.scriptPubKey.addresses[0]}}</span>
+              <span class="amount">{{output.value}} {{coin}}</span>
+            </div>
+          </div>
+          <hr *ngIf="oIndex !== (txDetail.txd.outputs.length - 1)">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="date" padding>
+      <span class="title">Date</span>
+      <span class="time">{{txDetail.timereceived * 1000 | date:'HH:mm:ss dd/MM/yyyy'}}</span>
+    </div>
+
+    <hr>
+
+    <div class="confirmations" padding>
+      <span class="title">Confirmations</span>
+      <span class="times">{{txDetail.confirmations}}</span>
+    </div>
+
+    <hr>
+
+    <div class="txid" padding>
+      <span class="title">Transaction ID</span>
+      <span class="times">{{tx.id}}</span>
+    </div>
+
+    <div class="footer" padding>
+      <span>View on blockchain</span>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,44 @@
+
+<div>
+  <ion-app>
+      <ion-header>
+          <ion-toolbar border-width="0">
+              <div class="header">
+                  <ion-icon name="arrow-back" mode="md" (click)="goback()"></ion-icon>
+                  <span class="title">Logs</span>
+              </div>
+          </ion-toolbar>
+      </ion-header>
+
+    <!--you can add fullscreen attribute-->
+    <ion-content text-center id="content" no-padding>
+      <div style="height: 100%;">
+        <div class="logs-content">
+          <div class="logs" padding scroll-y="true" scrolly="true">
+
+            <div class="log" *ngFor="let log of logger.logs">
+              <span [ngClass]="{cDebug: log.level === 'debug', cInfo: log.level === 'info', cWarn: log.level === 'warn', cError: log.level === 'error'}" *ngIf="levels[log.level]">
+                <span class="bold">[{{log.timestamp}}]</span> <span class="bold level">[{{log.level}}]</span> {{log.msg}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- fab placed in the center of the content with a list on each side -->
+        <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+          <ion-fab-button class="fab">
+            <ion-icon name="hammer"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-list side="end" class="levels">
+            <ion-fab-button [ngClass]="{debug: levels.debug}" (click)="toggleLevel('debug')">debug</ion-fab-button>
+            <ion-fab-button [ngClass]="{info: levels.info}" (click)="toggleLevel('info')">info</ion-fab-button>
+            <ion-fab-button [ngClass]="{warn: levels.warn}" (click)="toggleLevel('warn')">warn</ion-fab-button>
+            <ion-fab-button [ngClass]="{error: levels.error}" (click)="toggleLevel('error')">error</ion-fab-button>
+          </ion-fab-list>
+        </ion-fab>
+      </div>
+
+    </ion-content>
+
+  </ion-app>
+</div>

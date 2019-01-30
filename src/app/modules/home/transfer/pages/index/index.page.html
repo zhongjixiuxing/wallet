@@ -1,0 +1,103 @@
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <div class="header">
+      <ion-icon name="close" mode="md" routerLink="/home"></ion-icon>
+      <ion-title text-center>
+        {{wallet.name}}
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content *ngIf="wallet">
+  <div class="header" no-padding>
+    <ion-label>
+      {{wallet.amount | number:'1.0-5'}} &nbsp; {{wallet.currentCoin | uppercase}}
+    </ion-label>
+  </div>
+
+  <div class="container">
+    <div class="top">
+      <div class="switch" (click)="isReverse = !isReverse">
+        <ion-icon name="swap" mode="ios"></ion-icon>
+
+        <span class="label" *ngIf="!isReverse">
+          {{wallet.currentCoin | uppercase}}
+        </span>
+
+        <span class="label" *ngIf="isReverse">
+          USD
+        </span>
+      </div>
+
+      <div class="text">Enter Amount</div>
+
+      <div class="app-ion animated once bounce"
+           [ngClass]="{animated: canNext, once: canNext, bounce: canNext, myblock: canNext}"
+            (click)="next()"
+      >
+        <span class="next-ion"></span>
+        <!--<span class=" next-ion"></span>-->
+      </div>
+
+    </div>
+    <div class="center">
+
+      <div class="main">
+        <span class="amount">
+          <div *ngIf="!isReverse">{{amount}}</div>
+          <div *ngIf="isReverse">{{usdAmount}}</div>
+        </span>
+
+        <span class="unit" *ngIf="!isReverse">{{wallet.currentCoin | uppercase}}</span>
+        <span class="unit" *ngIf="isReverse">USD</span>
+      </div>
+
+      <div class="submain">
+        ≈
+        <span *ngIf="isReverse">{{amount}} {{wallet.currentCoin | uppercase}}</span>
+        <span *ngIf="!isReverse">{{usdAmount | number:'1.0-3'}} USD</span>
+      </div>
+
+    </div>
+    <div class="input">
+      <div class="numbers">
+        <div class="row">
+          <div class="column" (click)="enterNum('1')">1</div>
+          <div class="column" (click)="enterNum('2')">2</div>
+          <div class="column" (click)="enterNum('3')">3</div>
+        </div>
+        <div class="row">
+          <div class="column" (click)="enterNum('4')">4</div>
+          <div class="column" (click)="enterNum('5')">5</div>
+          <div class="column" (click)="enterNum('6')">6</div>
+        </div>
+        <div class="row">
+          <div class="column" (click)="enterNum('7')">7</div>
+          <div class="column" (click)="enterNum('8')">8</div>
+          <div class="column" (click)="enterNum('9')">9</div>
+        </div>
+
+      </div>
+      <div class="row bottom">
+        <div class="column column-point bottom-column" (click)="enterNum('.')">
+          <div class="point">
+          </div>
+        </div>
+
+        <div class="column zero bottom-column" (click)="enterNum('0')">
+          0
+        </div>
+
+        <div class="column delete bottom-column" (click)="deleteOneWorld()">
+          <ion-icon name="backspace" mode="ios"></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

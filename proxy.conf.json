@@ -1,0 +1,7 @@
+{
+  "/rate": {
+    "target": "https://api.huobi.pro/market/tickers",
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

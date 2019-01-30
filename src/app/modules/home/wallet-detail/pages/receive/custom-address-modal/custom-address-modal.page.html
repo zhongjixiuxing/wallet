@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar text-center>
+        <ion-title>Custom Path</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content text-center>
+    <div class="content">
+        <ion-label></ion-label>
+        <ion-item>
+            <ion-label position="stacked">Please input your custom path</ion-label>
+            <ion-input placeholder="Example: m/44'/0'/0'/0/0" [(ngModel)]="path"></ion-input>
+        </ion-item>
+
+        <ion-toolbar class="dismiss-toolbal">
+            <ion-button class="dismiss" (click)="close()">Ok / Cancel</ion-button>
+        </ion-toolbar>
+
+        <div class="tips-content">
+            <ion-card>
+                <ion-card-header>
+                    <ion-toolbar>
+                        <ion-title no-padding text-left class="tips">
+                            <ion-icon name="information-circle"></ion-icon>
+                            Tips
+                        </ion-title>
+                    </ion-toolbar>
+                </ion-card-header>
+                <ion-card-content>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44 格式 </a>
+                                <br>
+                                <div class="tip-content">m / purpose' / coin_type' / account' / change / address_index</div>
+                            </li>
+                        </ul>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+    </div>
+</ion-content>
+

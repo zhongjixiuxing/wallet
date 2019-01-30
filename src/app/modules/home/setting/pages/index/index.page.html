@@ -1,0 +1,73 @@
+
+<div>
+  <ion-app>
+      <ion-header no-border>
+          <ion-toolbar border-width="0" no-border>
+              <div class="header">
+                  <ion-icon name="arrow-back" mode="md" (click)="goback()"></ion-icon>
+                  <span class="title" [hidden]="!labelShow">Setting</span>
+              </div>
+          </ion-toolbar>
+      </ion-header>
+
+    <!--you can add fullscreen attribute-->
+    <ion-content text-center id="content" no-padding [scrollEvents]="true"
+                 (ionScroll)="onScroll($event)">
+      <div class="main">
+        <div class="top">
+          <ion-item class="label" >
+            <ion-label [hidden]="labelShow" [ngStyle]="{'opacity': labelOpts.opacity}" >
+                <span [ngStyle]="{'font-size': labelOpts.fontSize + 'px'}">Setting</span>
+            </ion-label>
+          </ion-item>
+        </div>
+
+        <div class="options" scroll-y="true" scrolly="true" (ionScroll)="onScroll()">
+
+          <div class="item" padding (click)="alertHelperContact()">
+            <div class="left">
+              <ion-icon name="help-circle-outline"></ion-icon>
+              <span class="key">
+                Help & Support
+              </span>
+            </div>
+          </div>
+
+          <div class="item" padding (click)="alertHelperContact()">
+            <div class="left">
+              <ion-icon name="chatbubbles"></ion-icon>
+              <span class="key">
+                Feedback
+              </span>
+            </div>
+          </div>
+
+          <div class="item group-title" padding>
+              <span class="key">
+                more
+              </span>
+          </div>
+          <div class="item" (click)="alertHelperContact()" padding>
+            <div class="left">
+              <ion-icon name="paper-plane" mode="md"></ion-icon>
+              <span class="key">
+                About AnXing
+              </span>
+            </div>
+          </div>
+
+          <div class="item" (click)="jump('/home/setting/logs')" padding>
+            <div class="left">
+              <ion-icon name="print" mode="md"></ion-icon>
+              <span class="key">
+                Logs
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </ion-content>
+
+  </ion-app>
+</div>

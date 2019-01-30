@@ -1,11 +1,15 @@
 
 .title{
-  height: 9%;
   background-color: var(--app-bg-color);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 18px;
+
+  ion-toolbar{
+    --background: var(--app-bg-color);
+  }
 
   span{
     color: var(--app-font-color);
@@ -18,13 +22,13 @@
   ion-icon{
     color: var(--app-font-color);
     font-size: 26px;
-    right: 5%;
-    position: fixed;
+    right: 0%;
+    position: absolute;
   }
 }
 
 .container {
-  height: 91%;
+  height: 100%;
   position: relative;
   background: none !important;
   scroll-behavior: auto;

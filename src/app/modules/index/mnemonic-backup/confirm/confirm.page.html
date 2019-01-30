@@ -1,14 +1,16 @@
-<ion-content padding *ngIf="newWallet">
-<!--<ion-content padding *ngIf="storage.tempData.newWallet">-->
-    <div class="container">
-        <div class="header" padding="">
-            <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
-            <div class="title">
-                <ion-title>{{ 'onboarding-pages.mnemonic_verify.title' | translate }}</ion-title>
-            </div>
-
+<ion-header padding>
+    <div class="header">
+        <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon>
+        <div class="title">
+            <ion-title>{{ 'onboarding-pages.mnemonic_verify.title' | translate }}</ion-title>
         </div>
+    </div>
+</ion-header>
 
+
+<ion-content no-padding *ngIf="newWallet">
+<!--<ion-content padding *ngIf="storage.tempData.newWallet">-->
+    <div class="container" padding>
         <div class="content" *ngIf="!isVerify" padding>
             <div class="mnemonic">
                 <ion-card-subtitle>{{ 'onboarding-pages.mnemonic_verify.notice' | translate }}</ion-card-subtitle>
@@ -51,19 +53,21 @@
             </div>
         </div>
     </div>
+
+    <div class="toast" *ngIf="errors" padding>
+        <div class="header">
+            <img class="warning-img" src="/assets/img/sold-warning.svg">
+            <ion-title>{{ 'onboarding-pages.mnemonic_verify.verify.error.title' | translate }}</ion-title>
+        </div>
+
+        <span>{{ 'onboarding-pages.mnemonic_verify.verify.error.text' | translate }}</span>
+
+        <hr style="width: 100%; color: ghostwhite">
+
+        <div class="footer">
+            <a class="i-know item" (click)="restartConfirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_reset' | translate }}</a>
+        </div>
+    </div>
 </ion-content>
 
-<div class="toast" *ngIf="errors" padding>
-    <div class="header">
-        <img class="warning-img" src="/assets/img/sold-warning.svg">
-        <ion-title>{{ 'onboarding-pages.mnemonic_verify.verify.error.title' | translate }}</ion-title>
-    </div>
 
-    <span>{{ 'onboarding-pages.mnemonic_verify.verify.error.text' | translate }}</span>
-
-    <hr style="width: 100%; color: ghostwhite">
-
-    <div class="footer">
-        <a class="i-know item" (click)="restartConfirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_reset' | translate }}</a>
-    </div>
-</div>

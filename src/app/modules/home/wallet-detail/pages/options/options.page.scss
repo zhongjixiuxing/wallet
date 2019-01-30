@@ -22,14 +22,16 @@ ion-content{
 .header{
   display: flex;
   justify-content: space-between;
-  padding: 0 10px;
 
   ion-icon{
     font-size: 24px;
     color: var(--app-font-color);
+    padding-left: 8px;
+    z-index: 999;
   }
 
   .title{
+    position: absolute;
     width: 100%;
     text-align: center;
     font-size: 24px;
@@ -40,7 +42,6 @@ ion-content{
 ion-toolbar {
   --background: var(--ion-color-primary) !important;
   --border-width: 0 !important;
-  border: 1px solid red;
   .toolbar-container{
     padding: 14px !important;
     max-height: 60px  !important;
@@ -55,9 +56,10 @@ ion-toolbar {
 
 .main{
   background-color: ghostwhite;
+  height: 100%;
 
   .top{
-    height: 60px;
+    height: 13%;
     text-align: -webkit-left;
     display: flex;
     align-items: flex-end;
@@ -71,7 +73,7 @@ ion-toolbar {
       --highlight-height: 0 !important;
       --inner-border-width: 0 !important;
 
-      font-size: 24px;
+      //font-size: 24px;
       color: var(--app-font-color);
 
       width: 100%;
@@ -83,6 +85,7 @@ ion-toolbar {
 
   .options{
     margin-top: 20px;
+
     .item{
       width: 100%;
       max-width: 480px;
@@ -114,5 +117,4 @@ ion-toolbar {
     }
   }
 }
-
 

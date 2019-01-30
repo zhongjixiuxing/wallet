@@ -1,36 +1,40 @@
-<div class="container">
-    <ion-card>
-        <div class="title">
-            <div class="content">
-                <ion-icon color="warning" name="wallet" slot="start" class="wallet-icon"></ion-icon>
-                <span class="text">
+<!--<ion-content>-->
+    <div class="container">
+        <ion-card>
+            <div class="title">
+                <div class="content">
+                    <ion-icon color="warning" name="wallet" slot="start" class="wallet-icon"></ion-icon>
+                    <span class="text">
                     {{"home.wallet_list.title" | translate}}
                 </span>
-                <!--<ion-button fill="outline" slot="end">View</ion-button>-->
-                <ion-icon name="add" slot="end" class="add-icon" routerLink="/home/new_wallet"></ion-icon>
+                    <!--<ion-button fill="outline" slot="end">View</ion-button>-->
+                    <ion-icon name="add" slot="end" class="add-icon" routerLink="/home/new_wallet"></ion-icon>
+                </div>
             </div>
-        </div>
 
-        <ion-card-content>
-            <div class="content">
-                <div class="wallets">
-                    <div class="wallet" *ngFor="let wallet of data.wallets" routerLink="/home/wallet/{{wallet.id}}">
-                        <div class="icon">
-                            <div>
-                                <ion-icon name="flask"></ion-icon>
+            <ion-card-content>
+                <div class="content">
+                    <div class="wallets">
+
+                        <!--<div class="wallet" *ngFor="let wallet of data.wallets" routerLink="/home/wallet/{{wallet.id}}" (click)="goToWalletDetails(wallet)">-->
+                        <div class="wallet" *ngFor="let wallet of data.wallets" (click)="goToWalletDetails(wallet)">
+                            <div class="icon">
+                                <div>
+                                    <ion-icon name="flask"></ion-icon>
+                                </div>
                             </div>
-                        </div>
-                        <div class="content wallet-infos">
-                            <div class="name">
-                                {{wallet.name}}
-                            </div>
-                            <div class="subtext">
-                                0.0 BTC
+                            <div class="content wallet-infos">
+                                <div class="name">
+                                    {{wallet.name}}
+                                </div>
+                                <div class="subtext">
+                                    {{wallet.amount}} BTC
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ion-card-content>
-    </ion-card>
-</div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+<!--</ion-content>-->

@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import * as Bip39 from 'bip39'
 import {ProfileModelService} from "../models/profile-model.service";
 import {PersistenceService} from "./persistence/persistence";
 import {Logger} from "./logger/logger";
 import {WalletService} from './wallet.service';
 
 import {remove} from 'lodash';
+import {Coin, CoinCfg, WalletModelService} from '../models/wallet-model.service';
+import {uniqBy} from 'lodash';
+import {Subject} from 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
+  public event$: Subject<any> = new Subject<any>();
   protected profile: ProfileModelService;
   protected dirty: boolean = false;
 
@@ -24,11 +27,28 @@ export class ProfileService {
 
   public async loadForPersistence() {
     try {
-        let profileData = await this.persistence.getProfile();
+        let profileData: any = await this.persistence.getProfile();
         if (!profileData) return;
 
-        Object.assign(this.profile,  profileData);
+        let tempWallets = [];
 
+        profileData.wallets.forEach(walletData => {
+            let wallet = new WalletModelService(walletData);
+
+            // format coins to Map<Coin, CoinCfg>
+            let coins = wallet.coins;
+            let keys = Object.keys(coins);
+            let temp: Map<Coin, CoinCfg> = new Map<Coin, CoinCfg>();
+            for (let i=0; i<keys.length; i++) {
+              temp.set(Coin[keys[i]], new CoinCfg(coins[keys[i]]));
+            }
+            wallet.coins = temp;
+
+            tempWallets.push(wallet);
+        })
+
+        profileData.wallets = tempWallets;
+        Object.assign(this.profile,  profileData);
     } catch (error) {
       this.logger.error('[ProfileService loadForPersistence failed]', error);
       throw error;
@@ -42,11 +62,17 @@ export class ProfileService {
 
   public addWallet(wallet) {
     this.profile.wallets.push(wallet);
+    this.profile.wallets = uniqBy(this.profile.wallets, (wallet) => wallet.id);
     this.walletService.addWallet(wallet);
     this.dirty = true;
   }
 
-  public getWallet(walletId) {
+    /**
+     *
+     * @param walletId
+     * @return {Array<WalletModelService>}
+     */
+  public getWallet(walletId): Array<WalletModelService> {
     return this.profile.wallets.filter((wallet) => {
       if (wallet.id === walletId) {
         return wallet;
@@ -62,7 +88,7 @@ export class ProfileService {
     });
 
     if (!deleteWallet) {
-      throw new Error('WalletId not found : '+walletId);
+      throw new Error(`WalletId not found : ${walletId}`);
     }
 
     this.dirty = true;

@@ -1,6 +1,5 @@
 import { Component, ViewChild, Inject,  NgZone} from '@angular/core';
-import {Slides} from '@ionic/angular';
-// import {Slides, App} from 'ionic-angular';
+import {IonSlides} from '@ionic/angular';
 import {Router} from "@angular/router";
 import {WalletService} from "../../../services/wallet.service";
 import {WalletModelService} from "../../../models/wallet-model.service";
@@ -9,6 +8,7 @@ import * as _ from "lodash";
 import {PersistenceService} from "../../../services/persistence/persistence";
 import {PopupService} from "../../../services/popup.service";
 import {Logger} from '../../../services/logger/logger';
+import {ProfileService} from '../../../services/profile.service';
 
 @Component({
   selector: 'index-slides',
@@ -16,7 +16,7 @@ import {Logger} from '../../../services/logger/logger';
   styleUrls: ['slides.page.scss']
 })
 export class IndexSlidesPage {
-    @ViewChild('slides') slides: Slides;
+    @ViewChild('slides') slides: IonSlides;
 
     slideOpts = {
         effect: 'flip',
@@ -35,7 +35,8 @@ export class IndexSlidesPage {
         private persistence: PersistenceService,
         private zone: NgZone,
         private popupService: PopupService,
-        private logger: Logger
+        private logger: Logger,
+        private profileService: ProfileService
     ) {
 
     }
@@ -55,7 +56,13 @@ export class IndexSlidesPage {
         this.slides.slidePrev(500);
     }
 
-    skip() {
+    async skip() {
+        this._wallet = this.walletService.createWallet();
+
+        if (await this.storageNewWallet()) {
+            return;
+        }
+
         this.router.navigate(['/index/agreement']);
     }
 

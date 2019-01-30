@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {CardItemInterface} from '../card-item-interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-wallet-list-card',
@@ -9,8 +10,14 @@ import {CardItemInterface} from '../card-item-interface';
 export class WalletListPage implements OnInit, CardItemInterface {
 
     @Input() data: any;
-    constructor() { }
+    constructor(
+        private router: Router
+    ) { }
 
     ngOnInit() {
+    }
+
+    goToWalletDetails(wallet) {
+        this.router.navigate([`/home/wallet/${wallet.id}`]);
     }
 }

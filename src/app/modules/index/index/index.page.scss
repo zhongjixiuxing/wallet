@@ -1,7 +1,10 @@
+ion-content{
+  --background: var(--app-bg-color);
+}
+
 .container{
   height: 100%;
   width: 100%;
-  background: var(--app-bg-color);
   justify-content: space-between;
   display: flex;
   flex-direction: column;
@@ -15,10 +18,13 @@
 }
 
 .text{
-  color: #f2f2f282;
+  color: lightgrey !important;
+  //color: red !important;
   text-align: center;
   font-size: 18px;
   padding-top: -10px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .buttons{

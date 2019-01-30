@@ -1,16 +1,17 @@
-<div *ngIf="wallet">
-  <ion-app>
-    <ion-header>
-      <ion-toolbar>
-        <div class="header">
-          <ion-icon name="close" mode="md" routerLink="/home"></ion-icon>
-          <ion-title>
-            {{wallet.name}}
-          </ion-title>
-          <ion-icon name="options" mode="md" (click)="goOptions()"></ion-icon>
-        </div>
-      </ion-toolbar>
-    </ion-header>
+<ion-content>
+  <div *ngIf="wallet">
+    <ion-app>
+      <ion-header>
+        <ion-toolbar>
+          <div class="header">
+            <ion-icon name="close" mode="md" routerLink="/home"></ion-icon>
+            <ion-title text-center>
+              {{wallet.name}}
+            </ion-title>
+            <ion-icon name="options" mode="md" (click)="goOptions()"></ion-icon>
+          </div>
+        </ion-toolbar>
+      </ion-header>
 
 
       <!--fullscreen-->
@@ -25,39 +26,63 @@
           </ion-refresher-content>
         </ion-refresher>
 
+        <!--<ion-tabs>-->
+          <!--<div slot="bottom" class="bar">-->
+            <!--<ion-tab-bar>-->
+              <!--<ion-tab-button tab="receive" href="/home/wallet/{{wallet.id}}/detail/(receive:receive)">-->
+                <!--<ion-icon name="arrow-down" mode="md"></ion-icon>-->
+                <!--<ion-label>Receive</ion-label>-->
+              <!--</ion-tab-button>-->
+
+              <!--<ion-tab-button tab="activity" href="/home/wallet/{{wallet.id}}/detail/(activity:activity)">-->
+                <!--<ion-icon name="aperture" mode="md"></ion-icon>-->
+                <!--<ion-label>Activity</ion-label>-->
+              <!--</ion-tab-button>-->
+
+              <!--<ion-tab-button tab="send" href="/home/wallet/{{wallet.id}}/detail/(send:send)">-->
+                <!--<ion-icon name="arrow-up" mode="md"></ion-icon>-->
+                <!--<ion-label>Send</ion-label>-->
+              <!--</ion-tab-button>-->
+            <!--</ion-tab-bar>-->
+          <!--</div>-->
+
+
+          <!--<ion-tab tab="receive">-->
+            <!--<ion-router-outlet name="receive"></ion-router-outlet>-->
+          <!--</ion-tab>-->
+
+          <!--<ion-tab tab="activity">-->
+            <!--<ion-router-outlet name="activity"></ion-router-outlet>-->
+          <!--</ion-tab>-->
+
+          <!--<ion-tab tab="send">-->
+            <!--<ion-router-outlet name="send"></ion-router-outlet>-->
+          <!--</ion-tab>-->
+        <!--</ion-tabs>-->
+
         <ion-tabs>
-          <div slot="bottom" class="bar">
-            <ion-tab-bar>
-              <ion-tab-button tab="receive" href="/home/wallet/{{wallet.id}}/(receive:receive)">
-                <ion-icon name="arrow-down" mode="md"></ion-icon>
-                <ion-label>Receive</ion-label>
-              </ion-tab-button>
+          <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="receive" href="/home/wallet/{{wallet.id}}/detail/receive">
+              <ion-icon name="arrow-down" mode="md"></ion-icon>
+              <ion-label>Receive</ion-label>
+            </ion-tab-button>
 
-              <ion-tab-button tab="activity" href="/home/wallet/{{wallet.id}}/(activity:activity)">
-                <ion-icon name="aperture" mode="md"></ion-icon>
-                <ion-label>Activity</ion-label>
-              </ion-tab-button>
+            <ion-tab-button tab="activity" href="/home/wallet/{{wallet.id}}/detail/activity">
+              <ion-icon name="aperture" mode="md"></ion-icon>
+              <ion-label>Activity</ion-label>
+            </ion-tab-button>
 
-              <ion-tab-button tab="send" href="/home/wallet/{{wallet.id}}/(send:send)">
-                <ion-icon name="arrow-up" mode="md"></ion-icon>
-                <ion-label>Send</ion-label>
-              </ion-tab-button>
-            </ion-tab-bar>
-          </div>
+            <ion-tab-button tab="send" href="/home/wallet/{{wallet.id}}/detail/send">
+              <ion-icon name="arrow-up" mode="md"></ion-icon>
+              <ion-label>Send</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
 
-
-          <ion-tab tab="receive">
-            <ion-router-outlet name="receive"></ion-router-outlet>
-          </ion-tab>
-
-          <ion-tab tab="activity">
-            <ion-router-outlet name="activity"></ion-router-outlet>
-          </ion-tab>
-
-          <ion-tab tab="send">
-            <ion-router-outlet name="send"></ion-router-outlet>
-          </ion-tab>
         </ion-tabs>
-    </ion-content>
-  </ion-app>
-</div>
+
+
+
+      </ion-content>
+    </ion-app>
+  </div>
+</ion-content>

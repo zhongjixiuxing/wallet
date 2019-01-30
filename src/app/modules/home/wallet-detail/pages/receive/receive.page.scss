@@ -1,0 +1,45 @@
+.container{
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  .top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .qr-code{
+    }
+  }
+}
+
+ion-footer{
+  .content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
+    ion-icon{
+      font-size: 25px;
+    }
+
+    ion-icon:last-of-type{
+      color: var(--ion-color-primary);
+    }
+
+    ion-label{
+      width: 80%;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

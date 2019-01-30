@@ -46,7 +46,9 @@ export class CreatePage implements OnInit {
   }
 
     goback() {
-        this.location.back();
+        this.zone.run(() => {
+            this.location.back();
+        })
     }
 
     nameFocus(){

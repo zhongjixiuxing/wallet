@@ -26,12 +26,23 @@ ion-header{
   background: var(--ion-color-primary) !important;
 }
 
+ion-header:after{
+  bottom: 0 !important;
+  height: 0 !important;
+}
+
 ion-toolbar {
   --background: var(--ion-color-primary) !important;
+  --border-color: none;
+  --border-width: 0;
   .toolbar-container{
     padding: 14px !important;
     max-height: 60px  !important;
   }
+}
+
+ion-toolbar:last-child{
+  --border-width: 0;
 }
 
 

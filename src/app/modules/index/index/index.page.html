@@ -1,15 +1,17 @@
 
-<div class="container">
-    <div>
-        <div class="logo">
-            <img src="assets/img/logo.png">
+<ion-content>
+    <div class="container" *ngIf="canShow">
+        <div>
+            <div class="logo">
+                <img src="assets/img/logo.png">
+            </div>
+
+            <div class="text">{{ 'onboarding-pages.index.title' | translate }}</div>
         </div>
 
-        <p class="text">{{ 'onboarding-pages.index.title' | translate }}</p>
+        <div class="buttons">
+            <ion-button text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" size="large" routerLink="/index/slides">{{ 'onboarding-pages.index.get-started' | translate }}</ion-button>
+            <ion-button text-capitalize="false" class="btn" color="success" expand="block" size="large" fill="clear" (click)="gotoGetStart()">{{ 'onboarding-pages.index.restore' | translate }}</ion-button>
+        </div>
     </div>
-
-    <div class="buttons">
-        <ion-button text-capitalize="false" class="btn" color="success" color-focused="primary" expand="block" size="large" routerLink="/index/slides">{{ 'onboarding-pages.index.get-started' | translate }}</ion-button>
-        <ion-button text-capitalize="false" class="btn" color="success" expand="block" size="large" fill="clear" (click)="gotoGetStart()">{{ 'onboarding-pages.index.restore' | translate }}</ion-button>
-    </div>
-</div>
+</ion-content>

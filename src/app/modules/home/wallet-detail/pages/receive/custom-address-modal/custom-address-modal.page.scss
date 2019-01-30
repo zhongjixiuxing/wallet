@@ -1,0 +1,40 @@
+ion-header{
+  ion-toolbar{
+    --background: var(--ion-color-primary);
+
+    ion-title{
+      color: var(--app-font-color)
+    }
+  }
+}
+
+.tips {
+  color: orange;
+}
+.content {
+  padding-top: 10%;
+  height: 100%;
+
+  li{
+    text-align: left;
+  }
+  .tips-content{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .tip-content{
+      width: 100%;
+      overflow-y: scroll;
+      white-space: nowrap;
+      background: #373c3f;
+      color: ghostwhite;
+      border-radius: 3px;
+      padding: 6px;
+    }
+  }
+
+  .dismiss-toolbal{
+    top: 8%;
+  }
+}

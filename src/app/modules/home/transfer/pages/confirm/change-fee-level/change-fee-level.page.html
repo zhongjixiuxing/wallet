@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header">
+      <ion-icon name="arrow-round-back" mode="ios" (click)="close()"></ion-icon>
+      <ion-title text-center>
+        Fee Level
+      </ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container" *ngIf="levels">
+    <div class="top">
+      <span>Testnet</span>
+    </div>
+
+    <div class="level white-bg" (click)="openLevelMoal()" padding>
+      <span class="left">
+        Current level
+      </span>
+      <span class="value">
+        {{currentLevel}} <ion-icon name="arrow-dropdown" mode="md"></ion-icon>
+      </span>
+    </div>
+
+    <div class="level-format-value white-bg" padding *ngIf="currentLevel !== 'custom'">
+      <span class="tips">
+        Fee level detail
+      </span>
+
+      <span class="value" *ngIf="currentLevel">
+        {{levels[currentLevel]}} {{unit}}
+      </span>
+    </div>
+
+    <div class="level-format-value-custom white-bg" padding *ngIf="currentLevel === 'custom'">
+        <ion-label position="stacked"> <span style="color: var(--ion-color-primary);">enter custom fee</span> </ion-label>
+        <div class="input">
+          <ion-input [(ngModel)]="customFeeValue" type="number"></ion-input>
+          <span class="unit">{{unit}}</span>
+        </div>
+    </div>
+
+    <div class="apply" padding>
+      <div class="content">
+        <ion-button color="primary" expand="block" (click)="change()">Apply Changes</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

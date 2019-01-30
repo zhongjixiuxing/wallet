@@ -1,3 +1,67 @@
-<div>
-  send page
-</div>
+<ion-content>
+  <ion-header class="header" no-padding>
+    <ion-label>
+      {{wallet.amount | number:'1.0-5'}} &nbsp; {{wallet.currentCoin | uppercase}}
+    </ion-label>
+  </ion-header>
+
+  <div class="container">
+    <div class="recipient">
+      <ion-label>
+        Recipient
+      </ion-label>
+
+      <!-- Searchbar in a Toolbar -->
+      <ion-toolbar>
+        <div class="container">
+          <div class="searchbar" text-left>
+            <ion-input debounce="500" placeholder="Input or enter recipient address" [(ngModel)]="recipientAddr"></ion-input>
+            <ion-icon name="qr-scanner" (click)="openScanner()"></ion-icon>
+          </div>
+
+          <div class="go" *ngIf="recipientAddr" (click)="sendByRecipient()">go</div>
+        </div>
+      </ion-toolbar>
+    </div>
+
+    <div class="cards">
+      <ion-card>
+        <ion-card-header>
+          <div class="content">
+            <div>
+              <ion-icon name="logo-bitcoin" class="logo-bitcoin"></ion-icon>
+              <ion-label>Addresses Book</ion-label>
+            </div>
+            <ion-icon name="add" class="add-icon" (click)="presentModal('createAddress')"></ion-icon>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div  *ngFor="let recipient of wallet.recipients">
+            <div class="item">
+              <div class="icon global-book">
+                <ion-icon name="pricetags"></ion-icon>
+              </div>
+              <ion-label (click)="sendByRecipient(recipient.address)">{{recipient.tag || recipient.address}}</ion-label>
+
+              <div class="more" (click)="more($event, recipient)">
+                <ion-icon name="arrow-dropdown" mode="md" *ngIf="recipient.id === currentAddrId"></ion-icon>
+                <ion-icon name="arrow-dropright" mode="md" *ngIf="recipient.id !== currentAddrId"></ion-icon>
+              </div>
+            </div>
+
+            <div class="under_line">
+              <div class="more-content" *ngIf="recipient.id === currentAddrId">
+                <span class="address">{{recipient.address}}</span>
+                <div class="btns">
+                  <div class="btn edit" (click)="presentModal('updateAddress', recipient)">edit</div>
+                  <div class="btn delete" (click)="deleteAddress(recipient)">delete</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

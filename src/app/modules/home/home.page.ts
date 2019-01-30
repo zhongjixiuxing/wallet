@@ -1,7 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
-import {PersistenceService} from "../../services/persistence/persistence";
-import {ErrorFormatService} from "../../services/error-format.service";
-import {ProfileService} from '../../services/profile.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',

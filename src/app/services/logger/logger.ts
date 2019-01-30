@@ -101,7 +101,7 @@ export class Logger {
   }
 
   public processingArgs(argsValues) {
-    var args = Array.prototype.slice.call(argsValues);
+    let args = Array.prototype.slice.call(argsValues);
     args = args.map(v => {
       try {
         if (typeof v == 'undefined') v = 'undefined';

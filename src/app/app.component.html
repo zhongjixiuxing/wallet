@@ -1,3 +1,30 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<div class="scanner" id="app-scanner">
+  <ion-header>
+    <ion-toolbar>
+      <div class="header">
+        <div (click)="closeQrScanner()">
+          <ion-icon name="close"></ion-icon>
+        </div>
+        <ion-title>Scanner</ion-title>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div class="content">
+    <div class="scroll-line"></div>
+
+    <div class="ions" padding>
+      <div>
+        <ion-icon name="flash" (click)="reverseLight()"></ion-icon>
+      </div>
+      <div>
+        <ion-icon name="reverse-camera" (click)="reverseScanner()"></ion-icon>
+      </div>
+    </div>
+  </div>
+</div>

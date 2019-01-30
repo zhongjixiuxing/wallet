@@ -11,6 +11,9 @@ import {EmptyWalletsPage} from './cards/empty-wallets/empty-wallets.page';
 import {TranslateModule} from '@ngx-translate/core';
 import {NewWalletPage} from './new-wallet/new-wallet.page';
 import {WalletDetailPage} from './wallet-detail/wallet-detail.page';
+import {QRScanner} from '@ionic-native/qr-scanner/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+
 
 @NgModule({
   imports: [
@@ -19,7 +22,6 @@ import {WalletDetailPage} from './wallet-detail/wallet-detail.page';
     FormsModule,
     TranslateModule,
     IndexPageRoutingModule,
-
   ],
   declarations: [
       HomePage,
@@ -29,6 +31,8 @@ import {WalletDetailPage} from './wallet-detail/wallet-detail.page';
       EmptyWalletsPage,
       NewWalletPage
   ],
+    providers: [
+    ],
     entryComponents: [WalletListPage, EmptyWalletsPage]
 })
 export class HomePageModule {}

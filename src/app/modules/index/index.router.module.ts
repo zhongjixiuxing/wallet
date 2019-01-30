@@ -8,15 +8,17 @@ import {EmailSettingPage} from "./email-setting/email-setting.page";
 import {MnemonicBkIndexPage} from "./mnemonic-backup/index/index.page";
 import {MnemonicBkCheckEnvPage} from "./mnemonic-backup/check-env/check-env.page";
 import {MnemonicBkConfirmPage} from "./mnemonic-backup/confirm/confirm.page";
-import {CanShowRouteCheckService} from './can-show-route-check.service';
+import {AppService} from '../../services/app.service';
+import {InitialDataGuardService} from '../../services/initial-data-guard.service';
 
 const routes: Routes = [
   {
-      canActivate: [CanShowRouteCheckService],
+      canActivate: [InitialDataGuardService],
       path: 'index',
       // component: IndexPage,
       children: [
           {
+              canActivate: [InitialDataGuardService],
               path: '',
               component: IndexPage
           },
@@ -56,6 +58,7 @@ const routes: Routes = [
       ]
   },
   {
+      canActivate: [InitialDataGuardService],
       path: '',
       redirectTo: '/index',
       pathMatch: 'full'

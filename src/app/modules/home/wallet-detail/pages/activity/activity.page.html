@@ -1,3 +1,52 @@
-<div>
-  activity page
-</div>
+<ion-content *ngIf="wallet">
+  <div class="container">
+    <div class="top">
+      <div class="content" padding>
+        <div class="header">
+          <div class="amount">
+            {{wallet.amount | number:'1.0-5'}} {{wallet.currentCoin | uppercase}}
+          </div>
+
+          <div class="usb-amount">
+            {{wallet.amount | walletAmountToUSD:wallet | async}} USD
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="left">
+            <ion-icon name="planet">
+            </ion-icon>
+            <span>TESTNET</span>
+          </div>
+
+          <div class="right">
+            <ion-icon name="search"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="txs" *ngIf="txShowFlag">
+      <div class="item" *ngFor="let item of (txs | groupTxs | async)">
+        <div class="month">
+          {{item.month}}
+        </div>
+
+        <div class="list">
+          <div class="tx" *ngFor="let tx of item.txs" padding (click)="gotoTx(tx)">
+            <div class="icon">
+              <ion-icon name="arrow-round-up"></ion-icon>
+            </div>
+            <div class="text">
+              {{tx.confirmations === 0 ? "sending" : tx.label === "" || tx.label === undefined ? tx.category : tx.label}}
+            </div>
+            <div class="right">
+              <div class="amount">{{tx.amount}} {{wallet.currentCoin | uppercase}}</div>
+              <div class="date">{{tx.ts*1000 | date: 'MMM d, y'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

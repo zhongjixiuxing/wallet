@@ -143,6 +143,22 @@
         "wallet_types": {
           "personal": {
             "title": "Create personal wallet"
+          },
+          "mnemonic":  {
+            "title": "Import from Mnemonic"
+          },
+          "file": {
+            "title": "Import from backup file"
+          }
+        }
+      },
+      "mnemonic": {
+        "title": "Import From Mnemonic",
+        "btn_import": "Import",
+        "inputs": {
+          "mnemonic": {
+            "placeholder": "Enter Mnemonic Words",
+            "tips": "mnemonic phrase(usually 12 words)"
           }
         }
       },

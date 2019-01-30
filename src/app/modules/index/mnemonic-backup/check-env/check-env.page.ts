@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 
@@ -13,6 +13,7 @@ export class MnemonicBkCheckEnvPage implements OnInit {
   constructor(
       private router: Router,
       private location: Location,
+      private ngZone: NgZone
   ) {
   }
 
@@ -20,7 +21,9 @@ export class MnemonicBkCheckEnvPage implements OnInit {
   }
 
   goback() {
-    this.location.back();
+    this.ngZone.run(() => {
+        this.location.back();
+    })
   }
 
   toggleToast() {

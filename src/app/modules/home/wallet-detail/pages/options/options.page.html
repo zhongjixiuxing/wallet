@@ -1,27 +1,28 @@
+
 <div *ngIf="wallet">
   <ion-app>
-    <div>
-      <ion-toolbar border-width="0">
-        <div class="header">
-          <ion-icon name="arrow-back" mode="md" (click)="goback()"></ion-icon>
-          <span class="title">Preference</span>
-        </div>
-      </ion-toolbar>
-    </div>
-
+      <ion-header no-border>
+          <ion-toolbar border-width="0" no-border>
+              <div class="header">
+                  <ion-icon name="arrow-back" mode="md" (click)="goback()"></ion-icon>
+                  <span class="title" [hidden]="!labelShow">Preference</span>
+              </div>
+          </ion-toolbar>
+      </ion-header>
 
     <!--you can add fullscreen attribute-->
-    <ion-content text-center id="content" no-padding>
+    <ion-content text-center id="content" no-padding [scrollEvents]="true"
+                 (ionScroll)="onScroll($event)">
       <div class="main">
         <div class="top">
-          <ion-item class="label">
-            <ion-label>
-              Preference
+          <ion-item class="label" >
+            <ion-label [hidden]="labelShow" [ngStyle]="{'opacity': labelOpts.opacity}" >
+                <span [ngStyle]="{'font-size': labelOpts.fontSize + 'px'}">Preference</span>
             </ion-label>
           </ion-item>
         </div>
 
-        <div class="options">
+        <div class="options" scroll-y="true" scrolly="true" (ionScroll)="onScroll()">
           <div class="item" padding>
               <span class="key">
                 Name
@@ -42,6 +43,11 @@
               <span class="key">
                 Export Wallet
               </span>
+          </div>
+          <div class="item" (click)="presentModal('create_address')" padding>
+            <span class="key">
+              Add Recipient
+            </span>
           </div>
 
           <div class="item" padding (click)="presentModal('delete_warning')">

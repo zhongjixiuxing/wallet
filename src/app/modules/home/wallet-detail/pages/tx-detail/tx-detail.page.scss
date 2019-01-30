@@ -1,0 +1,150 @@
+ion-toolbar{
+  --background: var(--ion-color-primary);
+  color: ghostwhite;
+  font-size: 24px;
+  font-weight: 500;
+
+  ion-title {
+    font-size: 24px;
+  }
+}
+
+.container{
+  max-width: 480px;
+  margin: 0 auto;
+
+  hr{
+    width: 100%;
+    border-bottom: 1px solid #f2efef;
+  }
+
+  .top{
+    .coin{
+      font-size: 24px;
+    }
+
+    .amount{
+      margin-top: 5px;
+      font-size: 35px;
+      display: flex;
+      justify-content: space-between;
+      line-height: 1;
+      .value{
+        display: flex;
+        .unit{
+          font-size: 16px;
+          margin-left: 10px;
+        }
+      }
+
+    }
+
+    .usb-amount{
+      color: gray;
+      margin-top: 10px;
+    }
+  }
+
+  .fee{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+
+    .title{
+      font-size: 24px;
+      color: black;
+    }
+  }
+
+  .to{
+    display: flex;
+    flex-direction: column;
+    color: gray;
+
+    .title{
+      font-size: 24px;
+      color: black;
+    }
+
+    .item{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .left{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        ion-icon{
+          font-size: 24px;
+          color: rebeccapurple;
+        }
+      }
+
+
+      .right{
+        width: calc(100% - 45px);
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+
+        .addr{
+          font-size: 18px;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .amount{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+
+    .title{
+      font-size: 24px;
+      color: black;
+    }
+  }
+
+  .confirmations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+
+    .title{
+      font-size: 24px;
+      color: black;
+    }
+  }
+
+  .txid {
+    display: flex;
+    flex-direction: column;
+    color: gray;
+
+    .title{
+      font-size: 24px;
+      color: black;
+      margin-bottom: 5px;
+    }
+  }
+
+  .footer{
+    background-color: ghostwhite;
+    color: #1E68CB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,26 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <div class="header">
+            <ion-icon name="arrow-back" mode="md" (click)="back()"></ion-icon>
+            <ion-title>Create Address</ion-title>
+        </div>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen padding text-center>
+
+    <ion-item class="first">
+        <ion-label position="stacked"><span class="label">tag</span></ion-label>
+        <ion-input [(ngModel)]="tag"></ion-input>
+    </ion-item>
+
+    <br>
+    <ion-item>
+        <ion-label position="stacked"><span class="label">address</span> <span style="color: red;"> * </span></ion-label>
+        <ion-input [(ngModel)]="address" required></ion-input>
+    </ion-item>
+
+
+    <div class="create">
+        <ion-button class="dismiss"  color="primary" expand="block" size="large"  (click)="create()">Create</ion-button>
+    </div>
+</ion-content>

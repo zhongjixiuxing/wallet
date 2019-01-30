@@ -1,3 +1,17 @@
-<div>
-  receive page
-</div>
+<ion-content *ngIf="wallet" no-padding text-center>
+  <div class="container">
+    <div class="top">
+      <div class="qr-code" (click)="copyAddress()">
+          <qrcode [qrdata]="wallet.currentReceiveAddress" [size]="256" [level]="'M'"></qrcode>
+      </div>
+    </div>
+
+    <ion-footer>
+      <div class="content" padding>
+          <ion-icon name="logo-bitcoin"></ion-icon>
+          <ion-label (click)="copyAddress()">{{wallet.currentReceiveAddress}}</ion-label>
+          <ion-icon mode="md" name="switch" (click)="openAddressActionSheet()"></ion-icon>
+      </div>
+    </ion-footer>
+  </div>
+</ion-content>

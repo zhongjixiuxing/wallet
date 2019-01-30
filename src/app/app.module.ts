@@ -13,6 +13,11 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {Device} from "@ionic-native/device/ngx";
 import {File} from "@ionic-native/file/ngx";
+import { Camera } from '@ionic-native/camera/ngx';
+import {QRScanner} from '@ionic-native/qr-scanner/ngx';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
+
+
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -38,7 +43,10 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     Device,
+    QRScanner,
+    Camera,
     File,
+    Clipboard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 
   ],
