@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, NgZone} from '@angular/core';
 import {CardItemInterface} from '../card-item-interface';
+import {ProfileService} from '../../../../services/profile.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-empty-wallets-card',
@@ -9,9 +11,19 @@ import {CardItemInterface} from '../card-item-interface';
 export class EmptyWalletsPage implements OnInit, CardItemInterface {
 
     @Input() data: any;
-    constructor() { }
+    constructor(private profileService: ProfileService, private ngZone: NgZone, private router: Router) {
+    }
 
     ngOnInit() {
+        let interval = setInterval(() => {
+            if (this.profileService.profile.wallets.length > 0) {
+                this.ngZone.run(() => {
+                    this.router.navigate(['/home']);
+                    clearInterval(interval);
+                    location.reload();
+                })
+            }
+        }, 50)
     }
 
     createNewWallet() {

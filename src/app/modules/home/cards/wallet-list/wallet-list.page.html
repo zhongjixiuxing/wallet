@@ -17,7 +17,7 @@
                     <div class="wallets">
 
                         <!--<div class="wallet" *ngFor="let wallet of data.wallets" routerLink="/home/wallet/{{wallet.id}}" (click)="goToWalletDetails(wallet)">-->
-                        <div class="wallet" *ngFor="let wallet of data.wallets" (click)="goToWalletDetails(wallet)">
+                        <div class="wallet" *ngFor="let wallet of profileService.profile.wallets" (click)="goToWalletDetails(wallet)">
                             <div class="icon">
                                 <div>
                                     <ion-icon name="flask"></ion-icon>

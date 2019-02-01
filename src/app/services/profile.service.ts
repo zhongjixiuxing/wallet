@@ -14,7 +14,7 @@ import {Subject} from 'rxjs/Rx';
 })
 export class ProfileService {
   public event$: Subject<any> = new Subject<any>();
-  protected profile: ProfileModelService;
+  public profile: ProfileModelService;
   protected dirty: boolean = false;
 
   constructor(

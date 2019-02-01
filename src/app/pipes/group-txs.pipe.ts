@@ -20,7 +20,7 @@ export class GroupTxsPipe implements PipeTransform {
         return new Promise<any>(async (resolve, reject) => {
             let groupTxs = groupBy(txs, (tx) => {
                 let now = new Date();
-                let date = new Date(tx.ts * 1000);
+                let date = tx.ts ? new Date(tx.ts * 1000) : new Date();
 
                 let title = '';
                 let mouth = date.toLocaleString('en-us',{month: 'long'});

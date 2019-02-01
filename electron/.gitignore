@@ -1,0 +1,6 @@
+package.json
+package-lock.json
+app
+node_modules
+splash_assets
+capacitor.config.json

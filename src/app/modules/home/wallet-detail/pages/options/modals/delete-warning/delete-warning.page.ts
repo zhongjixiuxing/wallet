@@ -35,22 +35,21 @@ export class DeleteWarningPage implements OnInit {
     }
 
     showConfirmAlert() {
-        let alertText = this.translate.instant('onboarding-pages.slides.password-alert');
         let opts = {
             backdropDismiss: false,
-            header: alertText.title,
-            message: alertText.text,
+            header: '确定删除此钱包？',
+            message: '删除后，如果你没有备份，token将永久掉失!!!',
             mode: 'ios',
             buttons: [
                 {
-                    text: alertText.btn_cancel,
+                    text: '我再想想',
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: () => {
                        this.back();
                     }
                 }, {
-                    text: alertText.btn_confirm,
+                    text: '确定',
                     handler: () => {
                         this.deleteWallet();
                     }
