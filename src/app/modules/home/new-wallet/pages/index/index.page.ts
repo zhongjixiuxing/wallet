@@ -1,5 +1,6 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-home-index',
@@ -8,7 +9,7 @@ import {Location} from '@angular/common';
 })
 export class IndexPage implements OnInit {
 
-    constructor(private location: Location, private ngZone: NgZone) {
+    constructor(private ngZone: NgZone, private router: Router) {
     }
 
     ngOnInit() {
@@ -16,7 +17,7 @@ export class IndexPage implements OnInit {
 
     goback() {
         this.ngZone.run(() => {
-            this.location.back();
+            this.router.navigate(['/home']);
         });
     }
 }

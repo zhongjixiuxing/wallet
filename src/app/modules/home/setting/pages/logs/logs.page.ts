@@ -37,7 +37,6 @@ export class LogsPage implements OnInit {
         private router: Router,
         private activedRoute: ActivatedRoute,
         private modalCtrl: ModalController,
-        private location: Location,
         private platform: Platform,
         private logger: Logger,
         private ngZone: NgZone
@@ -53,7 +52,7 @@ export class LogsPage implements OnInit {
 
     goback() {
         this.ngZone.run(() => {
-            this.location.back();
+            this.router.navigate(['/home'])
         });
     }
 }

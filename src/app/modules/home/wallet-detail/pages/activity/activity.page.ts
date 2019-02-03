@@ -67,7 +67,12 @@ export class ActivityPage implements OnInit, OnDestroy {
 
         this.wallet = wallets[0];
 
-        this.txs = this.wallet.coins.get(this.wallet.currentCoin).txs;
+        let coinCfg = this.wallet.coins.get(this.wallet.currentCoin);
+        if (coinCfg) {
+            this.txs = coinCfg.txs;
+        } else {
+            this.txs = [];
+        }
     }
 
     showInvalidWalletToast() {

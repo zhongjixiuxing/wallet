@@ -22,7 +22,6 @@ export class MnemonicBkConfirmPage implements OnInit {
 
     constructor(
         private router: Router,
-        private location: Location,
         protected persistence: PersistenceService,
         private zone: NgZone,
         private logger: Logger,
@@ -58,7 +57,7 @@ export class MnemonicBkConfirmPage implements OnInit {
         }
 
         this.zone.run(() => {
-            this.location.back();
+            this.router.navigate(['/index/mnemonic_backup/check_env']);
         });
     }
 

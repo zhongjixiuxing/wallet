@@ -12,7 +12,6 @@ export class MnemonicBkCheckEnvPage implements OnInit {
 
   constructor(
       private router: Router,
-      private location: Location,
       private ngZone: NgZone
   ) {
   }
@@ -22,7 +21,7 @@ export class MnemonicBkCheckEnvPage implements OnInit {
 
   goback() {
     this.ngZone.run(() => {
-        this.location.back();
+        this.router.navigate(['/index/mnemonic_backup/index']);
     })
   }
 

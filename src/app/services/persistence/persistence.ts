@@ -21,6 +21,7 @@ const Keys = {
     TEMPORARY_DATA: key => `tempData-${key}`,
     WALLETS: 'wallets',
     PROFILE: 'profile',
+    LOGS: 'logs'
 };
 
 interface Storage {
@@ -49,20 +50,31 @@ export class PersistenceService {
                 private platform: PlatformService,
                 private file: File,
                 private events: Events) {
+
+        // this._subscribeEvents();
         this.logger.debug('PersistenceService initialized');
         this.persistentLogs = {};
         this.logsBuffer = [];
         this.logsLoaded = false;
         this.persistentLogsEnabled = false;
-
-        // this._subscribeEvents();
     }
 
-    public load() {
+    public async load() {
         this.ramStorage = new RamStorage();
         this.storage = this.platform.isCordova
             ? new FileStorage(this.file, this.logger)
             : new LocalStorage(this.logger);
+
+        let logs = await this.getLogs();
+        this.logger.logs = this.logger.logs.concat(logs);
+        // storage logs
+        this.logger.event$
+            .subscribe(
+                event => {
+                    let logs = this.logger.logs.slice(0, 10000); // 只保留1w条
+                    this.setLogs(logs);
+                }
+            )
     }
 
     public setTemporaryData(key: String, data: any) {
@@ -120,7 +132,22 @@ export class PersistenceService {
         try {
             return await this.storage.get(Keys.PROFILE);
         } catch (err) {
-            this.logger.error('[PersistenceService] [getProfile] error: ', err);
+            this.logger.error('[PersistenceService.getProfile] error: ', err);
+        }
+
+    }
+
+    public async setLogs(logs) {
+        let storageData = _.isString(logs) ?  logs : JSON.stringify(logs);
+
+        return await this.storage.set(Keys.LOGS, storageData);
+    }
+
+    public async getLogs() {
+        try {
+            return await this.storage.get(Keys.LOGS);
+        } catch (err) {
+            this.logger.error('[PersistenceService.getLogs] error: ', err);
         }
 
     }

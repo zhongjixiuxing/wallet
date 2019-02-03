@@ -1,6 +1,9 @@
 /* tslint:disable:no-console */
 import { Injectable, isDevMode } from '@angular/core';
 import * as _ from 'lodash';
+import {PersistenceService} from '../persistence/persistence';
+import {AppService} from '../app.service';
+import {Subject} from 'rxjs/Rx';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +11,8 @@ import * as _ from 'lodash';
 export class Logger {
   public levels;
   public weight;
-  public logs;
+  public logs: any;
+  public event$: Subject<any> = new Subject<any>();
 
   constructor() {
     this.logs = [];
@@ -83,6 +87,7 @@ export class Logger {
       msg
     };
     this.logs.push(newLog);
+    this.event$.next({event: 'update', logs: this.logs});
     // this.events.publish('newLog', newLog);
   }
 

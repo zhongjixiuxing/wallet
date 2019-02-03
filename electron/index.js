@@ -25,6 +25,8 @@ const menuTemplateDev = [
           mainWindow.openDevTools();
         },
       },
+      { role: 'copy' },
+      { role: 'paste' }
     ],
   },
 ];
@@ -32,8 +34,8 @@ const menuTemplateDev = [
 async function createWindow () {
   // Define our main window size
   mainWindow = new BrowserWindow({
-    height: 920,
-    width: 1600,
+    height: 750,
+    width: 480,
     show: false,
   });
 

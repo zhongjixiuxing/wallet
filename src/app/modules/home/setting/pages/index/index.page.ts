@@ -29,7 +29,6 @@ export class IndexPage implements OnInit {
         private router: Router,
         private activedRoute: ActivatedRoute,
         private modalCtrl: ModalController,
-        private location: Location,
         private platform: Platform,
         private ngZone: NgZone
     ) {
@@ -54,15 +53,6 @@ export class IndexPage implements OnInit {
     }
 
     goback() {
-        /**
-         * 这种方式在锤子坚果真机、android系统上测试都有问题的，
-         * 返回到home页面，cards view 都没有显示(不正常)，出现问题的频率高
-         *
-         * @date 20190111
-         * @author anxing<anxing131@gmail.com>
-         */
-        // this.location.back();
-
         this.jump('/home');
     }
 

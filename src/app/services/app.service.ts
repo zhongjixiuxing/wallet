@@ -13,7 +13,7 @@ import {Logger} from './logger/logger';
 import {Coin, WalletModelService} from '../models/wallet-model.service';
 import {WalletService} from './wallet.service';
 import {ConfigService} from './config.service';
-import {isEmpty, findIndex} from 'lodash';
+import {isEmpty, findIndex, concat} from 'lodash';
 import {createDeflateRaw} from 'zlib';
 
 @Injectable({
@@ -46,7 +46,18 @@ export class AppService{
     public async init() {
         await this.persistence.load();
         await this.profileService.loadForPersistence();
+        await this.loadLogsForPersistence();
         await this.qrScanner.init();
+    }
+
+    public async loadLogsForPersistence() {
+        try {
+            let logs = await this.persistence.getLogs();
+            this.logger.logs = concat(this.logger.logs, logs);
+            this.logger.logs = this.logger.logs.slice(0, 10000);
+        } catch (err) {
+            this.logger.error(`[Logger.loadLogsForPersistence] error: `, err);
+        }
     }
 
     async initializeApp() {

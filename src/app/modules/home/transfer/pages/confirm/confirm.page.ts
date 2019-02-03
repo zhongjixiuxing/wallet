@@ -37,7 +37,6 @@ export class ConfirmPage implements OnInit {
     private tx: any;
 
     constructor(
-        private location: Location,
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private profileService: ProfileService,

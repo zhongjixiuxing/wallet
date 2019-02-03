@@ -33,14 +33,12 @@ export class IndexPage implements OnInit {
     private rate: BigNumber
 
     constructor(
-        private location: Location,
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private profileService: ProfileService,
         private logger: Logger,
         private popupService: PopupService,
         private rateService: RateService,
-        private ngZone: NgZone
     ) {
     }
 
@@ -153,12 +151,6 @@ export class IndexPage implements OnInit {
         };
 
         this.popupService.ionicCustomToast(opts);
-    }
-
-    goback() {
-        this.ngZone.run(() => {
-            this.location.back()
-        })
     }
 
     next() {

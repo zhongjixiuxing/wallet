@@ -30,7 +30,7 @@ export class ImportFromMnemonicPage implements OnInit {
 
     isImporting: boolean = false;
 
-    constructor(private location: Location,
+    constructor(
                 private popupService: PopupService,
                 private zone: NgZone,
                 private router: Router,
@@ -46,7 +46,7 @@ export class ImportFromMnemonicPage implements OnInit {
 
     goback() {
         this.ngZone.run(() => {
-            this.location.back();
+            this.router.navigate(['/home/new_wallet/index']);
         });
     }
 

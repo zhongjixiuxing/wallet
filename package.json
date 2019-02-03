@@ -1,21 +1,33 @@
 {
   "name": "V4",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "AnXing",
+  "homepage": "http://www.anxing.io/",
+  "repository":"https://github.com/zhongjixiuxing/wallet",
   "scripts": {
     "postinstall": "node patch.js",
     "ng": "ng",
     "start": "concurrently --kill-others \"npm run dev-worker\" \"ng serve --proxy-config proxy.conf.json\"",
     "build": "npm run build-worker && ng build",
+    "update-local-platforms": "npm run build && npx cap copy android && npx cap update android && npx cap copy ios && npx cap update ios && npx cap copy electron && npm run electron-patch && npx cap update electron",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "cap": "npm run build && npx cap copy android && npx cap update android && npx cap copy ios && npx cap update ios",
     "build-worker": "ng run app:build-worker",
-    "dev-worker": "ng run app:dev-worker"
+    "dev-worker": "ng run app:dev-worker",
+    "electron-patch": "node electron-patch.js",
+    "electron-build": "electron-builder"
   },
-  "private": true,
+  "private": false,
+  "keywords":[
+    "Blockchain",
+    "testnet",
+    "tokens",
+    "wallet",
+    "anxing",
+    "demo"
+  ],
   "dependencies": {
     "@angular/common": "~7.2.1",
     "@angular/core": "~7.2.1",
@@ -39,6 +51,7 @@
     "@ionic/angular": "4.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "angular-in-memory-web-api": "^0.8.0",
     "angular7-web-worker": "0.0.7",
     "angularx-qrcode": "^1.5.1",
     "animate.css": "^3.7.0",
@@ -79,10 +92,11 @@
     "@angular/compiler-cli": "~7.2.1",
     "@angular/language-service": "~7.2.1",
     "@ionic/angular-toolkit": "~1.2.0",
-    "@types/node": "~10.12.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~10.12.0",
     "codelyzer": "~4.5.0",
+    "electron-builder": "^20.38.5",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
@@ -95,7 +109,7 @@
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
   },
-  "description": "An Ionic project",
+  "description": "Blockchain Testnet Tokens Wallet",
   "cordova": {
     "plugins": {
       "cordova-plugin-file": {},
@@ -103,6 +117,22 @@
       "cordova-plugin-camera": {},
       "cordova-clipboard": {},
       "cordova-plugin-ionic-webview": {}
+    }
+  },
+  "build": {
+    "appId": "wallet.anxing.io",
+    "productName": "AX",
+    "copyright": "Copyright © 2019 AnXing",
+    "files": [
+      "/Users/fintend/workspace/test/ionic/V4/electron/app/**/*",
+      "/Users/fintend/workspace/test/ionic/V4/electron/"
+    ],
+    "directories": {
+      "buildResources": "./electron/app",
+      "output": "./electron/build-release-output"
+    },
+    "mac": {
+      "category": "tools"
     }
   }
 }

@@ -31,7 +31,6 @@ export class CreatePage implements OnInit {
     wallet: WalletModelService;
 
   constructor(
-      private location: Location,
       private popupService: PopupService,
       private zone: NgZone,
       private router: Router,
@@ -47,7 +46,7 @@ export class CreatePage implements OnInit {
 
     goback() {
         this.zone.run(() => {
-            this.location.back();
+            this.router.navigate(['/home/new_wallet/index']);
         })
     }
 
