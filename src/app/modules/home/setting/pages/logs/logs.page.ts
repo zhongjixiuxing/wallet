@@ -38,7 +38,7 @@ export class LogsPage implements OnInit {
         private activedRoute: ActivatedRoute,
         private modalCtrl: ModalController,
         private platform: Platform,
-        private logger: Logger,
+        public logger: Logger,
         private ngZone: NgZone
     ) {
     }

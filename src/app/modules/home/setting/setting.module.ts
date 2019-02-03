@@ -6,6 +6,7 @@ import {IndexPageRoutingModule} from './index.router.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {IndexPage} from './pages/index/index.page';
 import {LogsPage} from './pages/logs/logs.page';
+import {SettingPage} from './setting.page';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {LogsPage} from './pages/logs/logs.page';
   ],
   declarations: [
       IndexPage,
-      LogsPage
+      LogsPage,
+      SettingPage
   ],
   entryComponents: [
       LogsPage

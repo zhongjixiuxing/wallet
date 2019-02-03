@@ -13,7 +13,7 @@ export class WalletListPage implements OnInit, CardItemInterface {
     @Input() data: any;
     constructor(
         private router: Router,
-        private profileService: ProfileService
+        public profileService: ProfileService
     ) { }
 
     ngOnInit() {}

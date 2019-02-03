@@ -7,6 +7,7 @@
   "scripts": {
     "postinstall": "node patch.js",
     "ng": "ng",
+    "ng:build:prod": "ng build --prod",
     "start": "concurrently --kill-others \"npm run dev-worker\" \"ng serve --proxy-config proxy.conf.json\"",
     "build": "npm run build-worker && ng build",
     "update-local-platforms": "npm run build && npx cap copy android && npx cap update android && npx cap copy ios && npx cap update ios && npx cap copy electron && npm run electron-patch && npx cap update electron",

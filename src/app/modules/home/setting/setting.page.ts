@@ -4,6 +4,6 @@ import {Component} from '@angular/core';
   templateUrl: 'setting.page.html',
   styleUrls: ['setting.page.scss']
 })
-export class HomePage {
+export class SettingPage {
   constructor() {}
 }

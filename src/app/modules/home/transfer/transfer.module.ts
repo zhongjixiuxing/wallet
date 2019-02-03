@@ -10,6 +10,7 @@ import {ChangeFeeLevelPage} from './pages/confirm/change-fee-level/change-fee-le
 import {UsbTransferPipe} from '../../../pipes/usb-transfer.pipe';
 import {AppPipeModule} from '../../../pipes/app-pipe.module';
 import {SuccessPage} from './pages/confirm/success/success.page';
+import {TransferPage} from './transfer.page';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {SuccessPage} from './pages/confirm/success/success.page';
       IndexPage,
       ConfirmPage,
       ChangeFeeLevelPage,
-      SuccessPage
+      SuccessPage,
+      TransferPage
   ],
     entryComponents: [
         ChangeFeeLevelPage,
