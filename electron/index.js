@@ -39,9 +39,10 @@ async function createWindow () {
     show: false,
   });
 
+  // Set our above template to the Menu Object if we are in development mode, dont want users having the devtools.
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplateDev));
+
   if (isDevMode) {
-    // Set our above template to the Menu Object if we are in development mode, dont want users having the devtools.
-    Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplateDev));
     // If we are developers we might as well open the devtools by default.
     mainWindow.webContents.openDevTools();
   }

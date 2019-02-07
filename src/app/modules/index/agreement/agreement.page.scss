@@ -59,6 +59,12 @@ ion-content{
   }
 
   .final{
+    position: fixed;
+    left: 0;
+    bottom: calc(56px + 5%);
+    background: #1e6683;
+    width: 100%;
+
     .item{
       width: 100%;
 

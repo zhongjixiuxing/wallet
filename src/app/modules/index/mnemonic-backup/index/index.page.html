@@ -12,7 +12,7 @@
         <div class="buttons">
             <img src="./assets/img/tab-icons/ico-receive.svg" class="download">
             <ion-button text-capitalize="false" size="large" class="btn" color="success" color-focused="primary" expand="block" (click)="backup()">{{ 'onboarding-pages.mnemonic_bk.btn_backup' | translate }}</ion-button>
-            <ion-button text-capitalize="false" size="large" class="btn" color="success" color-focused="primary" expand="block" routerLink="/index/agreement">{{ 'onboarding-pages.mnemonic_bk.btn_skip' | translate }}</ion-button>
+            <ion-button text-capitalize="false" size="large" class="btn" color="success" color-focused="primary" expand="block" (click)="jump()">{{ 'onboarding-pages.mnemonic_bk.btn_skip' | translate }}</ion-button>
         </div>
     </div>
 </ion-content>

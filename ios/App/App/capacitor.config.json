@@ -5,5 +5,9 @@
   "webDir": "www",
   "ios":{
     "cordovaSwiftVersion": "3.2"
+  },
+  "snap":{
+    "confinement":"devmode",
+    "grade":"devel"
   }
 }

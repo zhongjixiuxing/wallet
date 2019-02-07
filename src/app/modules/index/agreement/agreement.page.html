@@ -25,11 +25,7 @@
         <div class="detail">
           <ion-card-subtitle text-capitalize="false">{{ 'onboarding-pages.agreement.detail' | translate }}</ion-card-subtitle>
         </div>
-      </div>
-    </div>
 
-    <div class="footer">
-      <div class="content">
         <div class="final" padding *ngIf="provisionItem3 && provisionItem2 && provisionItem1">
           <div class="item">
             <ion-checkbox [(ngModel)]="finalProvision"></ion-checkbox>
@@ -40,7 +36,11 @@
             <ion-card-subtitle text-capitalize="false">{{ 'onboarding-pages.agreement.final_detail' | translate }}</ion-card-subtitle>
           </div>
         </div>
+      </div>
+    </div>
 
+    <div class="footer">
+      <div class="content">
         <ion-button [disabled]="!finalProvision" text-capitalize="false" class="btn" color="success" expand="block" size="large" (click)="confirm()">{{ 'onboarding-pages.mnemonic_verify.verify.btn_confirm' | translate }}</ion-button>
       </div>
     </div>
