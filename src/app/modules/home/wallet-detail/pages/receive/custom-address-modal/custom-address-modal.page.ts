@@ -32,7 +32,7 @@ export class CustomAddressModalPage implements OnInit {
 
         let checkRes = this.checkPath(this.path)
         if (checkRes !== true) {
-            return this.showErrorToast(`${checkRes}`);
+            return this.showErrorToast(`${checkRes}`, 2000);
         }
 
         this.parent.customPathModal.dismiss({path: this.path});
@@ -42,14 +42,14 @@ export class CustomAddressModalPage implements OnInit {
         return WalletModelService.validatePath(path, this.parent.wallet.coin);
     }
 
-    showErrorToast(message: string = null) {
+    showErrorToast(message: string = null, duration: number = 200) {
         this.logger.warn(`Invalid path format: ${message}`);
         let opts = {
             message: `Invalid path format! [${message}]`,
             subtitle: 'message',
             color: 'danger',
             position: 'bottom',
-            duration: 200,
+            duration,
         }
 
         this.popupService.ionicCustomToast(opts);

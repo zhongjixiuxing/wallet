@@ -61,7 +61,7 @@ export class RefreshTxsWorker {
                     params: ['*', 1000, jumpIndex, true],
                 };
 
-                let listTxsRes: any = await FirstInitBtcWalletWorker.importToRemove(url, reqListTxsBody);
+                let listTxsRes: any = await FirstInitBtcWalletWorker.importToRemote(url, reqListTxsBody);
                 if (!listTxsRes && listTxsRes.status !== 200 && listTxsRes.error !== null) {
                     throw new Error('[RefreshTxsWorker.listtransactions] Invalid response: ' + JSON.stringify(listTxsRes));
                 }

@@ -70,7 +70,8 @@ export class TxDetailPage implements OnInit {
                 for (let i=0; i< txd.inputs.length; i++) {
                     let input = txd.inputs[i];
 
-                    let inputTxRes = await this.walletService.getTx(this.wallet, input.txid);
+                    // let inputTxRes = await this.walletService.getTx(this.wallet, input.txid);
+                    let inputTxRes = await this.walletService.getRawTransaction(input.txid);
                     if (inputTxRes.status !== 200 || inputTxRes.body.error !== null) {
                         throw new Error('Invalid response: ' + JSON.stringify(inputTxRes));
                     }

@@ -1,11 +1,13 @@
 import {Component, OnInit, ChangeDetectorRef, NgZone} from '@angular/core';
 import {Router} from '@angular/router';
 import {PersistenceService} from '../../../services/persistence/persistence';
-import {WalletModelService} from '../../../models/wallet-model.service';
+import {Coin, CoinCfg, WalletModelService} from '../../../models/wallet-model.service';
 import {PopupService} from '../../../services/popup.service';
 import {ProfileService} from '../../../services/profile.service';
 import * as uuid from 'uuid/v4';
 import {Logger} from '../../../services/logger/logger';
+import {HttpClientService} from '../../../services/http-client.service';
+import {WalletService} from '../../../services/wallet.service';
 
 
 @Component({
@@ -27,6 +29,7 @@ export class AgreementPage implements OnInit {
                 private changeRef: ChangeDetectorRef,
                 private zone: NgZone,
                 private logger: Logger,
+                private walletService: WalletService,
                 private profileService: ProfileService) {
         this.changeRef.markForCheck();
         this.init();
@@ -48,21 +51,80 @@ export class AgreementPage implements OnInit {
     }
 
     async confirm() {
+        const loading = await this.popupService.ionicCustomLoading(options);
+
         try {
+            await this.init();
             this.newWallet.id = uuid();
             this.newWallet.name = 'my-first-wallet';
+
+            const hash = WalletModelService.getSoleHash(this.newWallet.mnemonic);
+
+            let res;
+            try {
+                res = await this.walletService.getWalletInfoBySoleHash(hash, this.newWallet.name, this.newWallet.id);
+            } catch (err) {
+                // nothing to do here
+                this.logger.error(`[CreateWalletPage] createNewWallet error`, err);
+                this.alertError('Unknown Error');
+                return;
+            }
+
+            if (!res || (res.body.err !== HttpClientService.Errors.OK)) {
+                return;
+            }
+
+            try {
+                res = await this.walletService.initWalletFirstCoin(this.newWallet);
+            } catch (e) {
+                this.logger.error(`[CreateWalletPage] createNewWallet initWalletFirstCoin error`, e);
+                this.alertError('Unknown Error');
+                return;
+            }
+
+            if (!res || (res.body.err !== HttpClientService.Errors.OK)) {
+                return;
+            }
+
+            const path = res.body.data.path;
+            res = await this.walletService.updateScanFlag(this.newWallet, Coin.BTC, path, {app: {
+                    DuplicateRequest: () => { // 忽略默认的重复弹框处理
+                        return true;
+                    }
+                }});
+
+            if (res.body.err !== null && res.body.err !== 'DuplicateRequest') {
+                this.logger.error('[CreateWalletPage] [createNewWallet] [updateScanFlag] error: ', {
+                    res: res.body,
+                    walletId: this.newWallet.id,
+                    coin: Coin.BTC,
+                });
+
+                this.alertError('Unknown Error');
+                return;
+            }
+
+            const coinCfg = new CoinCfg({
+                currentPath: path,
+                currentReceiveAddress: null,
+                isFirstFullScan: true,
+            });
+
+            this.newWallet.coins.set(this.newWallet.currentCoin, coinCfg);
+            this.newWallet.createAddress(this.newWallet.currentPath, this.newWallet.currentCoin, {updateCurrentPath: true, updateCurrentAddress: true});
+
+            await this.walletService.importBtcAddressToRemote(this.newWallet, this.newWallet.currentReceiveAddress)
+
 
             this.profileService.addWallet(this.newWallet);
             this.profileService.setIsInit(true);
             await this.profileService.storageProfile();
 
-            let options = {
+            const options = {
                 spinner: 'lines',
                 message: 'Please wait...',
                 translucent: true
             };
-
-            let loading = await this.popupService.ionicCustomLoading(options);
 
             await this.persistence.removeTemporaryData('newWallet');
 
@@ -71,6 +133,7 @@ export class AgreementPage implements OnInit {
                 return this.router.navigate(['/home']);
             });
         } catch (err) {
+            loading.dismiss();
             this.logger.error('[Agreement Error]', err);
             await this.popupService.showIonicCustomErrorAlert(err);
         }
@@ -85,6 +148,27 @@ export class AgreementPage implements OnInit {
 
             return err;
         }
+    }
+
+    alertError(text: string) {
+        let opts = {
+            backdropDismiss: false,
+            header: 'Error',
+            message: text,
+            mode: 'ios',
+            buttons: [
+                {
+                    text: 'OK',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: () => {
+                        // nothing to do
+                    }
+                }
+            ]
+        };
+
+        this.popupService.ionicCustomAlert(opts);
     }
 
 }

@@ -66,7 +66,7 @@ export class WalletService {
       let lastIndex: any = coinCfg.currentPath.split('/');
       lastIndex = lastIndex[lastIndex.length - 1];
 
-      for (let i=lastIndex; i>0; i--) {
+      for (let i=lastIndex; i>=0; i--) {
           let path = 'm/44\'/1\'/0\'/0/'+i;
 
           const account = root.derivePath(path);
@@ -159,6 +159,16 @@ export class WalletService {
                   err => reject(err)
               );
       })
+  }
+
+  getRawTransaction(txid: string, customErrorHandle: any = {}, httpOptions: any = {}): Promise<any> {
+    return new Promise((resolve, reject) => {
+        this.httpClient.getRawTransaction(txid, customErrorHandle, httpOptions)
+            .subscribe(
+                res => resolve(res),
+                err => reject(err)
+            );
+    })
   }
 
     /**
@@ -292,19 +302,13 @@ export class WalletService {
             return ; // 当前只支持BTC
         }
 
-        let result = await this.importMultiBtcAddressToRemote(wallet);
-
-        console.log('finnal result ------------------ : ', result);
+        this.importMultiBtcAddressToRemote(wallet);
+        // let result = await this.importMultiBtcAddressToRemote(wallet);
     }
 
 
-    importMultiBtcAddressToRemote(wallet: WalletModelService) : Promise<any> {
-        return new Promise<any>((resolve, reject) => {
-            return this.httpClient.importMultiBtcAddressToRemote(wallet)
-                .subscribe(
-                    res => resolve(res),
-                    error => reject(error)
-                );
-        });
+    // importMultiBtcAddressToRemote(wallet: WalletModelService): Promise<any> {
+    importMultiBtcAddressToRemote(wallet: WalletModelService) {
+        this.httpClient.importMultiBtcAddressToRemote(wallet);
     }
 }

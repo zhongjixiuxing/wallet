@@ -176,7 +176,8 @@ export class HttpClientService{
 
         this.webWorker.doWork(workerMessage);
 
-        return this.webWorker.workerUpdate$;
+        // return this.webWorker.workerUpdate$;
+        return this.webWorker.workerSubject;
     }
 
     importMultiBtcAddressToRemote_bk(wallet, params: Array<any>, customErrorHandle:any = {}, httpOptions: any = {}) {
@@ -203,6 +204,13 @@ export class HttpClientService{
     getTxDetail(wallet: WalletModelService, txid: string,  customErrorHandle:any = {}, httpOptions: any = {}) {
         let url = `${this.config.globalCfg.api.btcRpc}/wallet/${wallet.id}`;
         let data = this.formatBtcRpcParams('gettransaction', [txid]);
+
+        return this.requestForBtcRpc(url, data, customErrorHandle, httpOptions);
+    }
+
+    getRawTransaction(txid, customErrorHandle:any = {}, httpOptions: any = {}) {
+        let url = this.config.globalCfg.api.btcRpc;
+        let data = this.formatBtcRpcParams('getrawtransaction', [txid, true]);
 
         return this.requestForBtcRpc(url, data, customErrorHandle, httpOptions);
     }
@@ -377,8 +385,8 @@ export class HttpClientService{
                         tap(res => this.logData(res, reqData), error => this.logError(error, reqData))
                     );
                 break;
-                
-            default: 
+
+            default:
                 throw new Error('un-support request method: ' + method);
         }
     }

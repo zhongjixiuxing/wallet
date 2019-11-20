@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "AnXing",
   "homepage": "http://www.anxing.io/",
-  "repository":"https://github.com/zhongjixiuxing/wallet",
+  "repository": "https://github.com/zhongjixiuxing/wallet",
   "scripts": {
     "postinstall": "node patch.js",
     "ng": "ng",
@@ -12,7 +12,7 @@
     "build": "npm run build-worker && ng build",
     "update-dev-platforms": "npm run build && npm run update:capacitor",
     "update-prod-platforms": "npm run ng:build:prod && npm run update:capacitor",
-    "update:capacitor":"npx cap copy android && npx cap update android && npx cap copy ios && npx cap update ios && npx cap copy electron && npm run electron-patch && npx cap update electron",
+    "update:capacitor": "npx cap copy android && npx cap update android && npx cap copy ios && npx cap update ios && npx cap copy electron && npm run electron-patch && npx cap update electron",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -23,7 +23,7 @@
     "electron-build": "electron-builder"
   },
   "private": false,
-  "keywords":[
+  "keywords": [
     "Blockchain",
     "testnet",
     "tokens",

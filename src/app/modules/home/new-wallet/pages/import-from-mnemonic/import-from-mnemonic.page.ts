@@ -10,6 +10,8 @@ import {TranslateService} from '@ngx-translate/core';
 import * as uuid from 'uuid/v4';
 import {Logger} from '../../../../../services/logger/logger';
 import {HttpClientService} from '../../../../../services/http-client.service';
+import {PersistenceService} from '../../../../../services/persistence/persistence';
+import {AppService} from '../../../../../services/app.service';
 
 @Component({
     templateUrl: './import-from-mnemonic.page.html',
@@ -38,6 +40,7 @@ export class ImportFromMnemonicPage implements OnInit {
                 private walletService: WalletService,
                 private ngZone: NgZone,
                 private logger: Logger,
+                private appService: AppService,
                 private translate: TranslateService) {
     }
 
@@ -66,8 +69,8 @@ export class ImportFromMnemonicPage implements OnInit {
         }
 
         let loading;
+        let isNewWallet: boolean = false;
         try {
-            let isNewWallet: boolean = false;
             this.isImporting = true;
             loading = await this.popupService.ionicCustomLoading({});
 
@@ -95,7 +98,7 @@ export class ImportFromMnemonicPage implements OnInit {
 
 
             let resData = res.body.data;
-            if (wallet.id !== resData.id) {
+            if (wallet.id === resData.id) {
                 isNewWallet = true;
             }
 
@@ -223,11 +226,23 @@ export class ImportFromMnemonicPage implements OnInit {
 
             this.profileService.addWallet(wallet);
             await this.profileService.storageProfile();
+
             if (isNewWallet) {
-                this.walletService.firstInit(wallet); // 第一次初始化(async);
+                // this.appService.event$.subscribe(
+                //     (resp) => {
+                //         this.isImporting = false;
+                //         if (loading) {
+                //             loading.dismiss();
+                //         }
+                //         this.ngZone.run(() => {
+                //             this.router.navigate([`/home/wallet/${wallet.id}`]);
+                //         });
+                //     });
+
+                await this.walletService.firstInit(wallet); // 第一次初始化(async);
             }
 
-            return this.ngZone.run(() => {
+            this.ngZone.run(() => {
                 this.router.navigate([`/home/wallet/${wallet.id}`]);
             });
         } catch (e) {

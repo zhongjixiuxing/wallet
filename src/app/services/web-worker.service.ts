@@ -12,7 +12,7 @@ export class WebWorkerService{
 
     workerUpdate$: Observable<WorkerMessage>;
     private worker: Worker;
-    private workerSubject: Subject<WorkerMessage>
+    public workerSubject: Subject<WorkerMessage>
     private workerMessageSubscription: Subscription;
 
     constructor(private logger: Logger) {

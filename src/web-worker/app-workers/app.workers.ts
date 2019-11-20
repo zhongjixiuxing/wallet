@@ -1,4 +1,4 @@
-import { FirstInitBtcWalletWorker } from './workers/index';
+import {FirstInitBtcWalletWorker, FullScanWorker, CheckFullScanResultWorker, RefreshAmountWorker} from './workers/index';
 import { WorkerMessage } from './shared/worker-message.model';
 import { WORKER_TOPIC } from './shared/worker-topic.constants';
 import * as serialize from 'serialize-error';
@@ -46,6 +46,18 @@ export class AppWorkers {
 
                 case WORKER_TOPIC.refreshTxs:
                     await RefreshTxsWorker.doWork(workerMessage, this);
+                    break;
+
+                case WORKER_TOPIC.fullScan:
+                    respWorkerMessage = await FullScanWorker.doWork(workerMessage);
+                    break;
+
+                case WORKER_TOPIC.checkFullScanResult:
+                    respWorkerMessage = await CheckFullScanResultWorker.doWork(workerMessage);
+                    break;
+
+                case WORKER_TOPIC.refreshAmount:
+                    respWorkerMessage = await RefreshAmountWorker.doWork(workerMessage);
                     break;
 
                 default:  // Add support for other workers here

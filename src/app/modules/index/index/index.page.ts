@@ -25,6 +25,6 @@ export class IndexPage {
     }
 
     gotoGetStart(){
-      this.router.navigate(['/index/agreement'])
+      this.router.navigate(['/home/new_wallet/mnemonic']);
     }
 }

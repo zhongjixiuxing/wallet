@@ -18038,10 +18038,10 @@ utils.intFromLE = intFromLE;
 /*!********************************************!*\
   !*** ./node_modules/elliptic/package.json ***!
   \********************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
+/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, name, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = {"_from":"elliptic@^6.4.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.4.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.4.0","saveSpec":null,"fetchSpec":"^6.4.0"},"_requiredBy":["/browserify-sign","/create-ecdh","/tiny-secp256k1"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.4.0","_where":"/Users/fintend/workspace/test/ionic/V4/node_modules/tiny-secp256k1","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"};
+module.exports = {"_args":[["elliptic@6.4.1","/Users/anxing/workspace/anxing/wallet/wallet"]],"_from":"elliptic@6.4.1","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.1","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.1","saveSpec":null,"fetchSpec":"6.4.1"},"_requiredBy":["/browserify-sign","/create-ecdh","/tiny-secp256k1"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_spec":"6.4.1","_where":"/Users/anxing/workspace/anxing/wallet/wallet","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"};
 
 /***/ }),
 
@@ -44521,7 +44521,7 @@ var AppWorkers = /** @class */ (function () {
                         _a = $event.data, topic = _a.topic, data = _a.data;
                         _c.label = 1;
                     case 1:
-                        _c.trys.push([1, 8, , 9]);
+                        _c.trys.push([1, 14, , 15]);
                         workerMessage = new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_1__["WorkerMessage"](topic, data);
                         if (!workerMessage.data.hasOwnProperty('jobId')) {
                             throw new Error('Unknown worker id!');
@@ -44535,26 +44535,41 @@ var AppWorkers = /** @class */ (function () {
                         switch (_b) {
                             case _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].firstInitBtcWallet: return [3 /*break*/, 2];
                             case _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].refreshTxs: return [3 /*break*/, 4];
+                            case _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].fullScan: return [3 /*break*/, 6];
+                            case _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].checkFullScanResult: return [3 /*break*/, 8];
+                            case _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].refreshAmount: return [3 /*break*/, 10];
                         }
-                        return [3 /*break*/, 6];
+                        return [3 /*break*/, 12];
                     case 2: return [4 /*yield*/, _workers_index__WEBPACK_IMPORTED_MODULE_0__["FirstInitBtcWalletWorker"].doWork(workerMessage)];
                     case 3:
                         respWorkerMessage = _c.sent();
-                        return [3 /*break*/, 7];
+                        return [3 /*break*/, 13];
                     case 4: return [4 /*yield*/, _workers_refresh_txs_worker__WEBPACK_IMPORTED_MODULE_4__["RefreshTxsWorker"].doWork(workerMessage, this)];
                     case 5:
                         _c.sent();
-                        return [3 /*break*/, 7];
-                    case 6: // Add support for other workers here
-                    throw new Error('Topic Does Not Match: ' + topic);
+                        return [3 /*break*/, 13];
+                    case 6: return [4 /*yield*/, _workers_index__WEBPACK_IMPORTED_MODULE_0__["FullScanWorker"].doWork(workerMessage)];
                     case 7:
+                        respWorkerMessage = _c.sent();
+                        return [3 /*break*/, 13];
+                    case 8: return [4 /*yield*/, _workers_index__WEBPACK_IMPORTED_MODULE_0__["CheckFullScanResultWorker"].doWork(workerMessage)];
+                    case 9:
+                        respWorkerMessage = _c.sent();
+                        return [3 /*break*/, 13];
+                    case 10: return [4 /*yield*/, _workers_index__WEBPACK_IMPORTED_MODULE_0__["RefreshAmountWorker"].doWork(workerMessage)];
+                    case 11:
+                        respWorkerMessage = _c.sent();
+                        return [3 /*break*/, 13];
+                    case 12: // Add support for other workers here
+                    throw new Error('Topic Does Not Match: ' + topic);
+                    case 13:
                         // remove job reference
                         this.removeJob(workerMessage.data.jobId);
                         if (respWorkerMessage) {
                             this.returnWorkResults(respWorkerMessage);
                         }
-                        return [3 /*break*/, 9];
-                    case 8:
+                        return [3 /*break*/, 15];
+                    case 14:
                         err_1 = _c.sent();
                         console.error('workerBroker error: ', err_1);
                         res = void 0;
@@ -44576,8 +44591,8 @@ var AppWorkers = /** @class */ (function () {
                         res.topic = topic;
                         errorWorkerMessage = new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_1__["WorkerMessage"](topic, res);
                         this.returnWorkResults(errorWorkerMessage);
-                        return [3 /*break*/, 9];
-                    case 9: return [2 /*return*/];
+                        return [3 /*break*/, 15];
+                    case 15: return [2 /*return*/];
                 }
             });
         });
@@ -44644,7 +44659,179 @@ var WORKER_TOPIC = {
     Error: 'Error',
     firstInitBtcWallet: 'firstInitBtcWallet',
     refreshTxs: 'refreshTxs',
+    fullScan: 'FullScan',
+    checkFullScanResult: 'CheckFullScanResult',
+    refreshAmount: 'refreshAmount'
 };
+
+
+/***/ }),
+
+/***/ "./src/web-worker/app-workers/workers/check-full-scan-result.worker.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/web-worker/app-workers/workers/check-full-scan-result.worker.ts ***!
+  \*****************************************************************************/
+/*! exports provided: CheckFullScanResultWorker */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CheckFullScanResultWorker", function() { return CheckFullScanResultWorker; });
+/* harmony import */ var _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/worker-message.model */ "./src/web-worker/app-workers/shared/worker-message.model.ts");
+/* harmony import */ var bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bitcoinjs-lib */ "./node_modules/bitcoinjs-lib/src/index.js");
+/* harmony import */ var bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bip39__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bip39 */ "./node_modules/bip39/index.js");
+/* harmony import */ var bip39__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bip39__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var bip32__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bip32 */ "./node_modules/bip32/index.js");
+/* harmony import */ var bip32__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bip32__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/worker-topic.constants */ "./src/web-worker/app-workers/shared/worker-topic.constants.ts");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! serialize-javascript */ "./node_modules/serialize-javascript/index.js");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(serialize_javascript__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./first-init-btc-wallet.worker */ "./src/web-worker/app-workers/workers/first-init-btc-wallet.worker.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var CheckFullScanResultWorker = /** @class */ (function () {
+    function CheckFullScanResultWorker() {
+    }
+    /**
+     * value.data format:
+     *     url: request url,
+     *     mnemonic: string, wallet mnemonic words
+     *     jobId: string 唯一的jobs标识
+     *
+     *
+     * @param {WorkerMessage} value
+     * @return {WorkerMessage}
+     */
+    CheckFullScanResultWorker.doWork = function (value) {
+        return __awaiter(this, void 0, void 0, function () {
+            var reqData, jumpIndex, startIdx, endIdx, url, lastIdx, lastPath, seed, root, addresses, i, path, account, address, reqListTxsBody, listTxsRes, i, tx, t, state, resp, err_1, resp;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 5, , 6]);
+                        reqData = value.data;
+                        jumpIndex = reqData.cfg.startIndex;
+                        startIdx = reqData.cfg.startIndex;
+                        endIdx = reqData.cfg.endIndex;
+                        url = reqData.url;
+                        lastIdx = -1;
+                        lastPath = null;
+                        seed = Object(bip39__WEBPACK_IMPORTED_MODULE_2__["mnemonicToSeed"])(reqData.cfg.mnemonic);
+                        root = Object(bip32__WEBPACK_IMPORTED_MODULE_3__["fromSeed"])(seed);
+                        addresses = new Map();
+                        for (i = startIdx; i < startIdx + endIdx; i++) {
+                            path = "m/44'/1'/0'/0/" + i;
+                            account = root.derivePath(path);
+                            address = bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__["payments"].p2pkh({ pubkey: account.publicKey, network: bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__["networks"].testnet }).address;
+                            addresses.set(address, { path: path, index: i });
+                        }
+                        _a.label = 1;
+                    case 1:
+                        if (false) {}
+                        reqListTxsBody = {
+                            jsonrpc: '1.0',
+                            id: 'curltest',
+                            method: 'listtransactions',
+                            // true 代表只获取导入的钱包addresses 的txs, 每次获取1000
+                            params: ['*', 1000, jumpIndex, true],
+                        };
+                        return [4 /*yield*/, _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_6__["FirstInitBtcWalletWorker"].importToRemote(url, reqListTxsBody)];
+                    case 2:
+                        listTxsRes = _a.sent();
+                        if (!listTxsRes && listTxsRes.status !== 200 && listTxsRes.error !== null) {
+                            throw new Error('[CheckFullScanResultWorker.listtransactions] Invalid response: ' + JSON.stringify(listTxsRes));
+                        }
+                        return [4 /*yield*/, listTxsRes.json()];
+                    case 3:
+                        listTxsRes = _a.sent();
+                        if (listTxsRes.result.length === 0) {
+                            return [3 /*break*/, 4];
+                        }
+                        for (i = 0; i < listTxsRes.result.length; i++) {
+                            tx = listTxsRes.result[i];
+                            if (!addresses.has(tx.address)) {
+                                continue;
+                            }
+                            t = addresses.get(tx.address);
+                            if (t.index > lastIdx) {
+                                lastIdx = t.index;
+                                lastPath = t.path;
+                            }
+                        }
+                        jumpIndex += 1000;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        state = 'continue';
+                        if (lastIdx === -1) {
+                            state = 'finished';
+                        }
+                        resp = {
+                            status: null,
+                            result: {
+                                state: state,
+                                lastIdx: lastIdx,
+                                lastPath: lastPath,
+                                reqData: reqData
+                            }
+                        };
+                        return [2 /*return*/, new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__["WorkerMessage"](_shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__["WORKER_TOPIC"].checkFullScanResult, resp)];
+                    case 5:
+                        err_1 = _a.sent();
+                        console.error('[CheckFullScanResultWorker.syncBtcTxs] error: ', err_1);
+                        resp = {
+                            status: 'Error',
+                            error: serialize_javascript__WEBPACK_IMPORTED_MODULE_5__(err_1)
+                        };
+                        return [2 /*return*/, new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__["WorkerMessage"](_shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__["WORKER_TOPIC"].checkFullScanResult, resp)];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return CheckFullScanResultWorker;
+}());
+
 
 
 /***/ }),
@@ -44772,12 +44959,12 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
                         reqBody = {
                             jsonrpc: '1.0',
                             id: 'curltest',
-                            method: 'listlabels',
-                            params: [""]
-                            // method: 'importmulti',
-                            // params: [formatAddresses]
+                            // method: 'listlabels',
+                            // params: [""]
+                            method: 'importmulti',
+                            params: [formatAddresses, { rescan: false }],
                         };
-                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemove(reqData.url, reqBody)];
+                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemote(reqData.url, reqBody)];
                     case 2:
                         res = _a.sent();
                         if (!(res && res.status === 200)) return [3 /*break*/, 13];
@@ -44788,7 +44975,7 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
                             params: []
                         };
                         txcount = 0;
-                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemove(reqData.url, reqWalletInfoBody)];
+                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemote(reqData.url, reqWalletInfoBody)];
                     case 3:
                         walletInfoRes = _a.sent();
                         if (!(walletInfoRes && walletInfoRes.status === 200)) return [3 /*break*/, 5];
@@ -44815,7 +45002,7 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
                             method: 'listtransactions',
                             params: ['*', count, jumpIndex, true],
                         };
-                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemove(reqData.url, reqListTxsBody)];
+                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemote(reqData.url, reqListTxsBody)];
                     case 8:
                         listTxsRes = _a.sent();
                         if (!(listTxsRes && listTxsRes.status === 200)) return [3 /*break*/, 10];
@@ -44970,7 +45157,7 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
                             params: [0, 9999999, [], true]
                         };
                         balance = new bignumber_js__WEBPACK_IMPORTED_MODULE_7___default.a(0);
-                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemove(url, unspentBody)];
+                        return [4 /*yield*/, FirstInitBtcWalletWorker.importToRemote(url, unspentBody)];
                     case 1:
                         unspentRes = _a.sent();
                         if (!(unspentRes && unspentRes.status === 200)) return [3 /*break*/, 3];
@@ -44990,7 +45177,7 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
             });
         });
     };
-    FirstInitBtcWalletWorker.importToRemove = function (url, data) {
+    FirstInitBtcWalletWorker.importToRemote = function (url, data) {
         return fetch(url, {
             body: JSON.stringify(data),
             cache: 'no-cache',
@@ -45009,11 +45196,176 @@ var FirstInitBtcWalletWorker = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/web-worker/app-workers/workers/full-scan.worker.ts":
+/*!****************************************************************!*\
+  !*** ./src/web-worker/app-workers/workers/full-scan.worker.ts ***!
+  \****************************************************************/
+/*! exports provided: FullScanWorker */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullScanWorker", function() { return FullScanWorker; });
+/* harmony import */ var _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/worker-message.model */ "./src/web-worker/app-workers/shared/worker-message.model.ts");
+/* harmony import */ var bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bitcoinjs-lib */ "./node_modules/bitcoinjs-lib/src/index.js");
+/* harmony import */ var bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var bip39__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bip39 */ "./node_modules/bip39/index.js");
+/* harmony import */ var bip39__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bip39__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var bip32__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! bip32 */ "./node_modules/bip32/index.js");
+/* harmony import */ var bip32__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(bip32__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/worker-topic.constants */ "./src/web-worker/app-workers/shared/worker-topic.constants.ts");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! serialize-javascript */ "./node_modules/serialize-javascript/index.js");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(serialize_javascript__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./first-init-btc-wallet.worker */ "./src/web-worker/app-workers/workers/first-init-btc-wallet.worker.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+var FullScanWorker = /** @class */ (function () {
+    function FullScanWorker() {
+    }
+    /**
+     * value.data format:
+     *     url: request url,
+     *     mnemonic: string, wallet mnemonic words
+     *     jobId: string 唯一的jobs标识
+     *
+     *
+     * @param {WorkerMessage} value
+     * @return {WorkerMessage}
+     */
+    FullScanWorker.doWork = function (value) {
+        return __awaiter(this, void 0, void 0, function () {
+            var reqData, before, seed, root, pIndex, endIndex, formatAddresses, i, path, account, address, reqBody, res, now2, body, status_1, err_1, resBody, resp2, now, resp;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        reqData = value.data;
+                        before = new Date();
+                        seed = Object(bip39__WEBPACK_IMPORTED_MODULE_2__["mnemonicToSeed"])(reqData.cfg.mnemonic);
+                        root = Object(bip32__WEBPACK_IMPORTED_MODULE_3__["fromSeed"])(seed);
+                        pIndex = reqData.cfg.startIndex;
+                        endIndex = reqData.cfg.endIndex;
+                        formatAddresses = [];
+                        for (i = pIndex; i < pIndex + endIndex; i++) {
+                            path = "m/44'/1'/0'/0/" + i;
+                            account = root.derivePath(path);
+                            address = bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__["payments"].p2pkh({ pubkey: account.publicKey, network: bitcoinjs_lib__WEBPACK_IMPORTED_MODULE_1__["networks"].testnet }).address;
+                            formatAddresses.push({
+                                scriptPubKey: { address: address },
+                                timestamp: 0
+                            });
+                        }
+                        reqBody = {
+                            jsonrpc: '1.0',
+                            id: 'curltest',
+                            method: 'importmulti',
+                            params: [formatAddresses, { rescan: false }],
+                        };
+                        return [4 /*yield*/, _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_6__["FirstInitBtcWalletWorker"].importToRemote(reqData.url, reqBody)];
+                    case 1:
+                        res = _a.sent();
+                        if (!(!res || res.status !== 200)) return [3 /*break*/, 6];
+                        now2 = new Date();
+                        body = null;
+                        status_1 = null;
+                        _a.label = 2;
+                    case 2:
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, res.json()];
+                    case 3:
+                        body = _a.sent();
+                        return [3 /*break*/, 5];
+                    case 4:
+                        err_1 = _a.sent();
+                        body = serialize_javascript__WEBPACK_IMPORTED_MODULE_5__(res);
+                        status_1 = _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__["WORKER_TOPIC"].Error;
+                        return [3 /*break*/, 5];
+                    case 5:
+                        resBody = {
+                            status: res.status,
+                            url: res.url,
+                            body: body
+                        };
+                        resp2 = {
+                            status: status_1,
+                            jobId: reqData.jobId,
+                            time: now2.valueOf() - before.valueOf(),
+                            res: resBody
+                        };
+                        return [2 /*return*/, new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__["WorkerMessage"](value.topic, resp2)];
+                    case 6:
+                        reqBody = {
+                            jsonrpc: '1.0',
+                            id: 'curltest',
+                            method: 'rescanblockchain',
+                            params: [],
+                        };
+                        _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_6__["FirstInitBtcWalletWorker"].importToRemote(reqData.url, reqBody);
+                        now = new Date();
+                        resp = {
+                            status: null,
+                            jobId: reqData.jobId,
+                            time: now.valueOf() - before.valueOf(),
+                            data: {
+                                reqData: reqData,
+                            }
+                        };
+                        return [2 /*return*/, new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__["WorkerMessage"](_shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_4__["WORKER_TOPIC"].fullScan, resp)];
+                }
+            });
+        });
+    };
+    return FullScanWorker;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/web-worker/app-workers/workers/index.ts":
 /*!*****************************************************!*\
   !*** ./src/web-worker/app-workers/workers/index.ts ***!
   \*****************************************************/
-/*! exports provided: FirstInitBtcWalletWorker, RefreshTxsWorker */
+/*! exports provided: FirstInitBtcWalletWorker, RefreshTxsWorker, FullScanWorker, CheckFullScanResultWorker, RefreshAmountWorker */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45024,7 +45376,113 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _refresh_txs_worker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./refresh-txs.worker */ "./src/web-worker/app-workers/workers/refresh-txs.worker.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RefreshTxsWorker", function() { return _refresh_txs_worker__WEBPACK_IMPORTED_MODULE_1__["RefreshTxsWorker"]; });
 
+/* harmony import */ var _full_scan_worker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./full-scan.worker */ "./src/web-worker/app-workers/workers/full-scan.worker.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FullScanWorker", function() { return _full_scan_worker__WEBPACK_IMPORTED_MODULE_2__["FullScanWorker"]; });
 
+/* harmony import */ var _check_full_scan_result_worker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./check-full-scan-result.worker */ "./src/web-worker/app-workers/workers/check-full-scan-result.worker.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckFullScanResultWorker", function() { return _check_full_scan_result_worker__WEBPACK_IMPORTED_MODULE_3__["CheckFullScanResultWorker"]; });
+
+/* harmony import */ var _refresh_amount_worker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./refresh-amount.worker */ "./src/web-worker/app-workers/workers/refresh-amount.worker.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RefreshAmountWorker", function() { return _refresh_amount_worker__WEBPACK_IMPORTED_MODULE_4__["RefreshAmountWorker"]; });
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/web-worker/app-workers/workers/refresh-amount.worker.ts":
+/*!*********************************************************************!*\
+  !*** ./src/web-worker/app-workers/workers/refresh-amount.worker.ts ***!
+  \*********************************************************************/
+/*! exports provided: RefreshAmountWorker */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RefreshAmountWorker", function() { return RefreshAmountWorker; });
+/* harmony import */ var _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../shared/worker-message.model */ "./src/web-worker/app-workers/shared/worker-message.model.ts");
+/* harmony import */ var _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./first-init-btc-wallet.worker */ "./src/web-worker/app-workers/workers/first-init-btc-wallet.worker.ts");
+/* harmony import */ var _shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/worker-topic.constants */ "./src/web-worker/app-workers/shared/worker-topic.constants.ts");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+var RefreshAmountWorker = /** @class */ (function () {
+    function RefreshAmountWorker() {
+    }
+    /**
+     * value.data format:
+     *     url: request url,
+     *     mnemonic: string, wallet mnemonic words
+     *     jobId: string 唯一的jobs标识
+     *
+     *
+     * @param {WorkerMessage} value
+     * @return {WorkerMessage}
+     */
+    RefreshAmountWorker.doWork = function (value) {
+        return __awaiter(this, void 0, void 0, function () {
+            var reqData, amount, resp;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        reqData = value.data;
+                        return [4 /*yield*/, _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_1__["FirstInitBtcWalletWorker"].calcBalanceForUnspent(reqData.url)];
+                    case 1:
+                        amount = _a.sent();
+                        resp = {
+                            status: null,
+                            jobId: reqData.jobId,
+                            data: {
+                                reqData: reqData,
+                                amount: amount.toString()
+                            }
+                        };
+                        return [2 /*return*/, new _shared_worker_message_model__WEBPACK_IMPORTED_MODULE_0__["WorkerMessage"](_shared_worker_topic_constants__WEBPACK_IMPORTED_MODULE_2__["WORKER_TOPIC"].refreshAmount, resp)];
+                }
+            });
+        });
+    };
+    return RefreshAmountWorker;
+}());
 
 
 
@@ -45151,7 +45609,7 @@ var RefreshTxsWorker = /** @class */ (function () {
                             // true 代表只获取导入的钱包addresses 的txs, 每次获取1000
                             params: ['*', 1000, jumpIndex, true],
                         };
-                        return [4 /*yield*/, _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_1__["FirstInitBtcWalletWorker"].importToRemove(url, reqListTxsBody)];
+                        return [4 /*yield*/, _first_init_btc_wallet_worker__WEBPACK_IMPORTED_MODULE_1__["FirstInitBtcWalletWorker"].importToRemote(url, reqListTxsBody)];
                     case 3:
                         listTxsRes = _a.sent();
                         if (!listTxsRes && listTxsRes.status !== 200 && listTxsRes.error !== null) {

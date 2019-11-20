@@ -21,7 +21,8 @@ const Keys = {
     TEMPORARY_DATA: key => `tempData-${key}`,
     WALLETS: 'wallets',
     PROFILE: 'profile',
-    LOGS: 'logs'
+    LOGS: 'logs',
+    TEMP: 'temp'
 };
 
 interface Storage {
@@ -101,6 +102,29 @@ export class PersistenceService {
         let storageData = _.isString(profile) ?  profile : this.formatProfile(profile);
 
         return await this.storage.set(Keys.PROFILE, storageData);
+    }
+
+    /**
+     *
+     * @param data
+     * @return {Promise<void>}
+     */
+    public async setTemp(data) {
+        const storageData = _.isString(data) ?  data : JSON.stringify(data);
+
+        return await this.storage.set(Keys.TEMP, storageData);
+    }
+
+    /**
+     * @return {Promise<any>}
+     */
+    public async getTemp() {
+        try {
+            return await this.storage.get(Keys.TEMP);
+        } catch (err) {
+            this.logger.error('[PersistenceService.getTemp] error: ', err);
+        }
+
     }
 
     formatProfile(profile) {

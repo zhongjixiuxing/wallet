@@ -1,11 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {WalletModelService} from '../../../../../models/wallet-model.service';
+import {CoinCfg, WalletModelService} from '../../../../../models/wallet-model.service';
 import {ProfileService} from '../../../../../services/profile.service';
 import {PopupService} from '../../../../../services/popup.service';
 import {Clipboard} from '../../../../../services/clipboard/clipboard';
 import {ActionSheetController, ModalController} from '@ionic/angular';
 import {CustomAddressModalPage} from './custom-address-modal/custom-address-modal.page';
+import {HttpClientService} from '../../../../../services/http-client.service';
+import {WalletService} from '../../../../../services/wallet.service';
+import {Logger} from '../../../../../services/logger/logger';
 
 @Component({
   templateUrl: './receive.page.html',
@@ -24,6 +27,8 @@ export class ReceivePage implements OnInit {
         private clipboard: Clipboard,
         public actionSheetController: ActionSheetController,
         public modalController: ModalController,
+        public walletService: WalletService,
+        public logger: Logger
         // public popoverController: PopoverController
     ) {
     }
@@ -100,8 +105,23 @@ export class ReceivePage implements OnInit {
     }
 
     async updateAddressByNext() {
-        let result = await this.wallet.getNextAddress({updateCurrentPath: true, updateCurrentAddress: true});
-        await this.profileService.storageProfile();
+        const res = await this.walletService.getWalletNextPath(this.wallet);
+
+        if (!res || (res.body.err !== HttpClientService.Errors.OK)) {
+            let opts = {
+                message: "Internal Server Error",
+                color: 'danger',
+                position: 'bottom',
+                duration: 3000
+            };
+
+            this.popupService.ionicCustomToast(opts);
+            this.logger.error('Receive page get wallet next path error: ', res);
+            return false;
+        }
+
+        const path = res.body.data.path;
+        await this.updateAddress(path);
     }
 
     async updateAddressByCustom() {
@@ -118,8 +138,34 @@ export class ReceivePage implements OnInit {
                 }
 
                 let path: string = data.data.path;
-                this.wallet.createAddress(path, this.wallet.currentCoin, {updateCurrentPath: true, updateCurrentAddress: true});
+                // this.wallet.createAddress(path, this.wallet.currentCoin, {updateCurrentPath: true, updateCurrentAddress: true});
+                this.updateAddress(path);
             })
         await this.customPathModal.present();
+    }
+
+    async updateAddress(path: string) {
+        const address = this.wallet.createAddress(path, this.wallet.currentCoin);
+
+        const importAddrRes = await this.walletService.importBtcAddressToRemote(this.wallet, address);
+        if (!importAddrRes.hasOwnProperty('body') || !importAddrRes.body || !importAddrRes.body.hasOwnProperty('error')
+            || !importAddrRes.body.error === null
+        ) {
+            let opts = {
+                message: "Internal Server Error",
+                color: 'danger',
+                position: 'bottom',
+                duration: 3000
+            };
+
+            this.popupService.ionicCustomToast(opts);
+            this.logger.error('Receive page [importBtcAddressToRemote] error : ', importAddrRes);
+            return false;
+        }
+
+        this.wallet.createAddress(path, this.wallet.currentCoin, {updateCurrentPath: true, updateCurrentAddress: true});
+        await this.profileService.storageProfile();
+
+        return true;
     }
 }

@@ -15,7 +15,7 @@ import {Logger} from './logger/logger';
 export class RateService{
     public lastRefreshTs: any;
     public rate: Array<any>;
-    private rateServiceUrl: string = 'https://api.nomics.com/v1/prices?key=2018-09-demo-dont-deploy-b69315e440beb145';
+    private rateServiceUrl: string = 'http://coins.rate.anxing131.xyz/v1/prices?key=2018-09-demo-dont-deploy-b69315e440beb145';
 
     constructor(
         private persistence: PersistenceService,

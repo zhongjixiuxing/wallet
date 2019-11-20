@@ -64,9 +64,13 @@ ion-content{
     bottom: calc(56px + 5%);
     background: #1e6683;
     width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
 
     .item{
-      width: 100%;
+      width: 450px !important;
 
       display: flex;
       flex-direction: row;

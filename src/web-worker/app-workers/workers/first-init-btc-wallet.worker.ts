@@ -48,13 +48,13 @@ export class FirstInitBtcWalletWorker {
             let reqBody = {
                 jsonrpc: '1.0',
                 id: 'curltest',
-                method: 'listlabels',
-                params: [""]
-                // method: 'importmulti',
-                // params: [formatAddresses]
+                // method: 'listlabels',
+                // params: [""]
+                method: 'importmulti',
+                params: [formatAddresses, {rescan: false}],
             };
 
-            let res = await FirstInitBtcWalletWorker.importToRemove(reqData.url,  reqBody);
+            let res = await FirstInitBtcWalletWorker.importToRemote(reqData.url,  reqBody);
 
             if (res && res.status === 200) {
                 let reqWalletInfoBody = {
@@ -65,7 +65,7 @@ export class FirstInitBtcWalletWorker {
                 };
 
                 let txcount = 0; // wallet txcount at the moment;
-                let walletInfoRes:any = await FirstInitBtcWalletWorker.importToRemove(reqData.url, reqWalletInfoBody);
+                let walletInfoRes:any = await FirstInitBtcWalletWorker.importToRemote(reqData.url, reqWalletInfoBody);
                 if (walletInfoRes && walletInfoRes.status === 200) {
                     walletInfoRes = await walletInfoRes.json();
                     if (!walletInfoRes || walletInfoRes.error !== null || !walletInfoRes.hasOwnProperty('result') || !walletInfoRes.result.hasOwnProperty('txcount')) {
@@ -91,7 +91,7 @@ export class FirstInitBtcWalletWorker {
                             params: ['*', count, jumpIndex, true], // true 代表只获取导入的钱包addresses 的txs
                         };
 
-                        let listTxsRes:any = await FirstInitBtcWalletWorker.importToRemove(reqData.url, reqListTxsBody);
+                        let listTxsRes:any = await FirstInitBtcWalletWorker.importToRemote(reqData.url, reqListTxsBody);
                         if (listTxsRes && listTxsRes.status === 200) {
                             listTxsRes = await listTxsRes.json();
                             if (!listTxsRes || listTxsRes.error !== null || !listTxsRes.hasOwnProperty('result')) {
@@ -242,7 +242,7 @@ export class FirstInitBtcWalletWorker {
         };
 
         let balance = new BigNumber(0);
-        let unspentRes: any = await FirstInitBtcWalletWorker.importToRemove(url,  unspentBody);
+        let unspentRes: any = await FirstInitBtcWalletWorker.importToRemote(url,  unspentBody);
         if (unspentRes && unspentRes.status === 200) {
             unspentRes = await unspentRes.json();
             if (unspentRes.error !== null) {
@@ -259,7 +259,7 @@ export class FirstInitBtcWalletWorker {
         return balance;
     }
 
-    public static importToRemove(url: string, data:any) {
+    public static importToRemote(url: string, data:any) {
         return fetch(url, {
             body: JSON.stringify(data),
             cache: 'no-cache',
@@ -268,7 +268,7 @@ export class FirstInitBtcWalletWorker {
             },
             method: 'POST',
             mode: 'cors'
-        })
+        });
             // .then(response => response.json()) //parses response to JSON
     }
 }
