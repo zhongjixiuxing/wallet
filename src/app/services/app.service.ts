@@ -257,7 +257,8 @@ export class AppService{
                             coin,
                             startIndex: 0,
                             endIndex: 1000,
-                            ts: 0
+                            ts: 0,
+                            lastCheckTs: Date.now()
                         });
                     }
                 });

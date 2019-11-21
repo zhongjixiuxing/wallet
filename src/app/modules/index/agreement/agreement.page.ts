@@ -51,6 +51,12 @@ export class AgreementPage implements OnInit {
     }
 
     async confirm() {
+        const options = {
+            spinner: 'lines',
+            message: 'Please wait...',
+            translucent: true
+        };
+
         const loading = await this.popupService.ionicCustomLoading(options);
 
         try {
@@ -119,12 +125,6 @@ export class AgreementPage implements OnInit {
             this.profileService.addWallet(this.newWallet);
             this.profileService.setIsInit(true);
             await this.profileService.storageProfile();
-
-            const options = {
-                spinner: 'lines',
-                message: 'Please wait...',
-                translucent: true
-            };
 
             await this.persistence.removeTemporaryData('newWallet');
 
