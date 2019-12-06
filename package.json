@@ -80,7 +80,7 @@
     "rxjs": "6.3.3",
     "rxjs-compat": "6.3.3",
     "serialize-error": "^3.0.0",
-    "serialize-javascript": "^1.6.1",
+    "serialize-javascript": "^2.1.1",
     "uuid": "^3.3.2",
     "worker": "^0.3.12",
     "zone.js": "~0.8.26"
